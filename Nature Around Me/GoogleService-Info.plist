@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>720616343187-0qhhhsp1ebu1ikqtpls56gvj1mupd4gq.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.720616343187-0qhhhsp1ebu1ikqtpls56gvj1mupd4gq</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAkvZmf71SsWLeP0UimzTo9IIHf6kCNCEY</string>
+	<key>GCM_SENDER_ID</key>
+	<string>720616343187</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.RonDavid.Nature-Around-Me</string>
+	<key>PROJECT_ID</key>
+	<string>nature-around-me</string>
+	<key>STORAGE_BUCKET</key>
+	<string>nature-around-me.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:720616343187:ios:29724775eacf2cf7322f66</string>
+</dict>
+</plist>

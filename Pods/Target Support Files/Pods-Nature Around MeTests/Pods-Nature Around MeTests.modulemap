@@ -1,0 +1,6 @@
+framework module Pods_Nature_Around_MeTests {
+  umbrella header "Pods-Nature Around MeTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

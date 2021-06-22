@@ -1,0 +1,799 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		06F06D601C39CE3BE66C911E /* Pods_Nature_Around_Me.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72E6155E0DEEA8199D51F201 /* Pods_Nature_Around_Me.framework */; };
+		552993A8268201E100CD1821 /* Post+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552993A7268201E100CD1821 /* Post+CoreDataProperties.swift */; };
+		5548870E267D243C00D0C9DB /* CreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5548870D267D243C00D0C9DB /* CreateViewController.swift */; };
+		5548872C267E1A7200D0C9DB /* MyModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5548872A267E1A7200D0C9DB /* MyModel.xcdatamodeld */; };
+		55488732267E1AAF00D0C9DB /* Post+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55488730267E1AAF00D0C9DB /* Post+CoreDataClass.swift */; };
+		5579F137267B9A600057AFBB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5579F136267B9A600057AFBB /* AppDelegate.swift */; };
+		5579F139267B9A600057AFBB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5579F138267B9A600057AFBB /* SceneDelegate.swift */; };
+		5579F13E267B9A600057AFBB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5579F13C267B9A600057AFBB /* Main.storyboard */; };
+		5579F140267B9A630057AFBB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5579F13F267B9A630057AFBB /* Assets.xcassets */; };
+		5579F143267B9A630057AFBB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5579F141267B9A630057AFBB /* LaunchScreen.storyboard */; };
+		5579F14E267B9A630057AFBB /* Nature_Around_MeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5579F14D267B9A630057AFBB /* Nature_Around_MeTests.swift */; };
+		5579F159267B9A630057AFBB /* Nature_Around_MeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5579F158267B9A630057AFBB /* Nature_Around_MeUITests.swift */; };
+		5579F16D267BB3160057AFBB /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5579F16C267BB3160057AFBB /* ProfileViewController.swift */; };
+		5579F17D267C77870057AFBB /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5579F17C267C77870057AFBB /* HomeViewController.swift */; };
+		5579F182267C87650057AFBB /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5579F181267C87650057AFBB /* TableViewCell.swift */; };
+		5579F188267CFB020057AFBB /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5579F187267CFB020057AFBB /* Model.swift */; };
+		55F04D07267F4242001AC096 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 55F04D06267F4242001AC096 /* GoogleService-Info.plist */; };
+		5B7F04E8FA359A2CBA0262D3 /* Pods_Nature_Around_MeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D84FA3EB7E8855BF6CD4C92 /* Pods_Nature_Around_MeTests.framework */; };
+		FBC4370B82C3BA17FC197B32 /* Pods_Nature_Around_Me_Nature_Around_MeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E47DC824262833BAA71538B4 /* Pods_Nature_Around_Me_Nature_Around_MeUITests.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5579F14A267B9A630057AFBB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5579F12B267B9A600057AFBB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5579F132267B9A600057AFBB;
+			remoteInfo = "Nature Around Me";
+		};
+		5579F155267B9A630057AFBB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5579F12B267B9A600057AFBB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5579F132267B9A600057AFBB;
+			remoteInfo = "Nature Around Me";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		552993A7268201E100CD1821 /* Post+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Post+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		5548870D267D243C00D0C9DB /* CreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateViewController.swift; sourceTree = "<group>"; };
+		5548872B267E1A7200D0C9DB /* MyModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MyModel.xcdatamodel; sourceTree = "<group>"; };
+		55488730267E1AAF00D0C9DB /* Post+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Post+CoreDataClass.swift"; sourceTree = "<group>"; };
+		5579F133267B9A600057AFBB /* Nature Around Me.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Nature Around Me.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5579F136267B9A600057AFBB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		5579F138267B9A600057AFBB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		5579F13D267B9A600057AFBB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		5579F13F267B9A630057AFBB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5579F142267B9A630057AFBB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		5579F144267B9A630057AFBB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5579F149267B9A630057AFBB /* Nature Around MeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Nature Around MeTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5579F14D267B9A630057AFBB /* Nature_Around_MeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nature_Around_MeTests.swift; sourceTree = "<group>"; };
+		5579F14F267B9A630057AFBB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5579F154267B9A630057AFBB /* Nature Around MeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Nature Around MeUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5579F158267B9A630057AFBB /* Nature_Around_MeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nature_Around_MeUITests.swift; sourceTree = "<group>"; };
+		5579F15A267B9A630057AFBB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5579F16C267BB3160057AFBB /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		5579F17C267C77870057AFBB /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		5579F181267C87650057AFBB /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		5579F187267CFB020057AFBB /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		55F04D06267F4242001AC096 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		706E1F0211D3FAEEB8C8F8F8 /* Pods-Nature Around Me-Nature Around MeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nature Around Me-Nature Around MeUITests.debug.xcconfig"; path = "Target Support Files/Pods-Nature Around Me-Nature Around MeUITests/Pods-Nature Around Me-Nature Around MeUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		72E6155E0DEEA8199D51F201 /* Pods_Nature_Around_Me.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Nature_Around_Me.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D84FA3EB7E8855BF6CD4C92 /* Pods_Nature_Around_MeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Nature_Around_MeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ACBCA3D20B23EFE47AD4CA45 /* Pods-Nature Around MeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nature Around MeTests.release.xcconfig"; path = "Target Support Files/Pods-Nature Around MeTests/Pods-Nature Around MeTests.release.xcconfig"; sourceTree = "<group>"; };
+		B4E30E073CAC5EB28F72A840 /* Pods-Nature Around Me.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nature Around Me.debug.xcconfig"; path = "Target Support Files/Pods-Nature Around Me/Pods-Nature Around Me.debug.xcconfig"; sourceTree = "<group>"; };
+		B818997B8EF9E853A9E49713 /* Pods-Nature Around MeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nature Around MeTests.debug.xcconfig"; path = "Target Support Files/Pods-Nature Around MeTests/Pods-Nature Around MeTests.debug.xcconfig"; sourceTree = "<group>"; };
+		E07518190E8547EA2A1F8A8D /* Pods-Nature Around Me.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nature Around Me.release.xcconfig"; path = "Target Support Files/Pods-Nature Around Me/Pods-Nature Around Me.release.xcconfig"; sourceTree = "<group>"; };
+		E47DC824262833BAA71538B4 /* Pods_Nature_Around_Me_Nature_Around_MeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Nature_Around_Me_Nature_Around_MeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F4AB5A66D873281C077EF0AA /* Pods-Nature Around Me-Nature Around MeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nature Around Me-Nature Around MeUITests.release.xcconfig"; path = "Target Support Files/Pods-Nature Around Me-Nature Around MeUITests/Pods-Nature Around Me-Nature Around MeUITests.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5579F130267B9A600057AFBB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				06F06D601C39CE3BE66C911E /* Pods_Nature_Around_Me.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5579F146267B9A630057AFBB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5B7F04E8FA359A2CBA0262D3 /* Pods_Nature_Around_MeTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5579F151267B9A630057AFBB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FBC4370B82C3BA17FC197B32 /* Pods_Nature_Around_Me_Nature_Around_MeUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		271608FFA93579C8E9EE516C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				72E6155E0DEEA8199D51F201 /* Pods_Nature_Around_Me.framework */,
+				E47DC824262833BAA71538B4 /* Pods_Nature_Around_Me_Nature_Around_MeUITests.framework */,
+				9D84FA3EB7E8855BF6CD4C92 /* Pods_Nature_Around_MeTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5189E24C2CF2AE3ADA248EC0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B4E30E073CAC5EB28F72A840 /* Pods-Nature Around Me.debug.xcconfig */,
+				E07518190E8547EA2A1F8A8D /* Pods-Nature Around Me.release.xcconfig */,
+				706E1F0211D3FAEEB8C8F8F8 /* Pods-Nature Around Me-Nature Around MeUITests.debug.xcconfig */,
+				F4AB5A66D873281C077EF0AA /* Pods-Nature Around Me-Nature Around MeUITests.release.xcconfig */,
+				B818997B8EF9E853A9E49713 /* Pods-Nature Around MeTests.debug.xcconfig */,
+				ACBCA3D20B23EFE47AD4CA45 /* Pods-Nature Around MeTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		5579F12A267B9A600057AFBB = {
+			isa = PBXGroup;
+			children = (
+				5579F135267B9A600057AFBB /* Nature Around Me */,
+				5579F14C267B9A630057AFBB /* Nature Around MeTests */,
+				5579F157267B9A630057AFBB /* Nature Around MeUITests */,
+				5579F134267B9A600057AFBB /* Products */,
+				5189E24C2CF2AE3ADA248EC0 /* Pods */,
+				271608FFA93579C8E9EE516C /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		5579F134267B9A600057AFBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5579F133267B9A600057AFBB /* Nature Around Me.app */,
+				5579F149267B9A630057AFBB /* Nature Around MeTests.xctest */,
+				5579F154267B9A630057AFBB /* Nature Around MeUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5579F135267B9A600057AFBB /* Nature Around Me */ = {
+			isa = PBXGroup;
+			children = (
+				5579F186267CFACD0057AFBB /* Model */,
+				5579F136267B9A600057AFBB /* AppDelegate.swift */,
+				5579F138267B9A600057AFBB /* SceneDelegate.swift */,
+				5579F13C267B9A600057AFBB /* Main.storyboard */,
+				5579F13F267B9A630057AFBB /* Assets.xcassets */,
+				5579F141267B9A630057AFBB /* LaunchScreen.storyboard */,
+				5579F144267B9A630057AFBB /* Info.plist */,
+				5579F16C267BB3160057AFBB /* ProfileViewController.swift */,
+				5579F17C267C77870057AFBB /* HomeViewController.swift */,
+				5579F181267C87650057AFBB /* TableViewCell.swift */,
+				5548870D267D243C00D0C9DB /* CreateViewController.swift */,
+				55F04D06267F4242001AC096 /* GoogleService-Info.plist */,
+			);
+			path = "Nature Around Me";
+			sourceTree = "<group>";
+		};
+		5579F14C267B9A630057AFBB /* Nature Around MeTests */ = {
+			isa = PBXGroup;
+			children = (
+				5579F14D267B9A630057AFBB /* Nature_Around_MeTests.swift */,
+				5579F14F267B9A630057AFBB /* Info.plist */,
+			);
+			path = "Nature Around MeTests";
+			sourceTree = "<group>";
+		};
+		5579F157267B9A630057AFBB /* Nature Around MeUITests */ = {
+			isa = PBXGroup;
+			children = (
+				5579F158267B9A630057AFBB /* Nature_Around_MeUITests.swift */,
+				5579F15A267B9A630057AFBB /* Info.plist */,
+			);
+			path = "Nature Around MeUITests";
+			sourceTree = "<group>";
+		};
+		5579F186267CFACD0057AFBB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				55488730267E1AAF00D0C9DB /* Post+CoreDataClass.swift */,
+				552993A7268201E100CD1821 /* Post+CoreDataProperties.swift */,
+				5579F187267CFB020057AFBB /* Model.swift */,
+				5548872A267E1A7200D0C9DB /* MyModel.xcdatamodeld */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5579F132267B9A600057AFBB /* Nature Around Me */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5579F15D267B9A630057AFBB /* Build configuration list for PBXNativeTarget "Nature Around Me" */;
+			buildPhases = (
+				66068253DFC9733A8F1069AF /* [CP] Check Pods Manifest.lock */,
+				5579F12F267B9A600057AFBB /* Sources */,
+				5579F130267B9A600057AFBB /* Frameworks */,
+				5579F131267B9A600057AFBB /* Resources */,
+				43F8AAA1A41075CF7DFF4C31 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Nature Around Me";
+			productName = "Nature Around Me";
+			productReference = 5579F133267B9A600057AFBB /* Nature Around Me.app */;
+			productType = "com.apple.product-type.application";
+		};
+		5579F148267B9A630057AFBB /* Nature Around MeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5579F160267B9A630057AFBB /* Build configuration list for PBXNativeTarget "Nature Around MeTests" */;
+			buildPhases = (
+				A45D3F813A61640399B45BB2 /* [CP] Check Pods Manifest.lock */,
+				5579F145267B9A630057AFBB /* Sources */,
+				5579F146267B9A630057AFBB /* Frameworks */,
+				5579F147267B9A630057AFBB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5579F14B267B9A630057AFBB /* PBXTargetDependency */,
+			);
+			name = "Nature Around MeTests";
+			productName = "Nature Around MeTests";
+			productReference = 5579F149267B9A630057AFBB /* Nature Around MeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		5579F153267B9A630057AFBB /* Nature Around MeUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5579F163267B9A630057AFBB /* Build configuration list for PBXNativeTarget "Nature Around MeUITests" */;
+			buildPhases = (
+				C7C0A55E80E8D5292B2FE427 /* [CP] Check Pods Manifest.lock */,
+				5579F150267B9A630057AFBB /* Sources */,
+				5579F151267B9A630057AFBB /* Frameworks */,
+				5579F152267B9A630057AFBB /* Resources */,
+				FB03C7400877FDCB1F619B4D /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5579F156267B9A630057AFBB /* PBXTargetDependency */,
+			);
+			name = "Nature Around MeUITests";
+			productName = "Nature Around MeUITests";
+			productReference = 5579F154267B9A630057AFBB /* Nature Around MeUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5579F12B267B9A600057AFBB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1240;
+				LastUpgradeCheck = 1240;
+				TargetAttributes = {
+					5579F132267B9A600057AFBB = {
+						CreatedOnToolsVersion = 12.4;
+					};
+					5579F148267B9A630057AFBB = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = 5579F132267B9A600057AFBB;
+					};
+					5579F153267B9A630057AFBB = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = 5579F132267B9A600057AFBB;
+					};
+				};
+			};
+			buildConfigurationList = 5579F12E267B9A600057AFBB /* Build configuration list for PBXProject "Nature Around Me" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 5579F12A267B9A600057AFBB;
+			productRefGroup = 5579F134267B9A600057AFBB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5579F132267B9A600057AFBB /* Nature Around Me */,
+				5579F148267B9A630057AFBB /* Nature Around MeTests */,
+				5579F153267B9A630057AFBB /* Nature Around MeUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5579F131267B9A600057AFBB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5579F143267B9A630057AFBB /* LaunchScreen.storyboard in Resources */,
+				55F04D07267F4242001AC096 /* GoogleService-Info.plist in Resources */,
+				5579F140267B9A630057AFBB /* Assets.xcassets in Resources */,
+				5579F13E267B9A600057AFBB /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5579F147267B9A630057AFBB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5579F152267B9A630057AFBB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		43F8AAA1A41075CF7DFF4C31 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Nature Around Me/Pods-Nature Around Me-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Nature Around Me/Pods-Nature Around Me-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Nature Around Me/Pods-Nature Around Me-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		66068253DFC9733A8F1069AF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Nature Around Me-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A45D3F813A61640399B45BB2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Nature Around MeTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C7C0A55E80E8D5292B2FE427 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Nature Around Me-Nature Around MeUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FB03C7400877FDCB1F619B4D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Nature Around Me-Nature Around MeUITests/Pods-Nature Around Me-Nature Around MeUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Nature Around Me-Nature Around MeUITests/Pods-Nature Around Me-Nature Around MeUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Nature Around Me-Nature Around MeUITests/Pods-Nature Around Me-Nature Around MeUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5579F12F267B9A600057AFBB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5548870E267D243C00D0C9DB /* CreateViewController.swift in Sources */,
+				5579F182267C87650057AFBB /* TableViewCell.swift in Sources */,
+				5579F137267B9A600057AFBB /* AppDelegate.swift in Sources */,
+				552993A8268201E100CD1821 /* Post+CoreDataProperties.swift in Sources */,
+				5548872C267E1A7200D0C9DB /* MyModel.xcdatamodeld in Sources */,
+				55488732267E1AAF00D0C9DB /* Post+CoreDataClass.swift in Sources */,
+				5579F16D267BB3160057AFBB /* ProfileViewController.swift in Sources */,
+				5579F188267CFB020057AFBB /* Model.swift in Sources */,
+				5579F139267B9A600057AFBB /* SceneDelegate.swift in Sources */,
+				5579F17D267C77870057AFBB /* HomeViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5579F145267B9A630057AFBB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5579F14E267B9A630057AFBB /* Nature_Around_MeTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5579F150267B9A630057AFBB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5579F159267B9A630057AFBB /* Nature_Around_MeUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5579F14B267B9A630057AFBB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5579F132267B9A600057AFBB /* Nature Around Me */;
+			targetProxy = 5579F14A267B9A630057AFBB /* PBXContainerItemProxy */;
+		};
+		5579F156267B9A630057AFBB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5579F132267B9A600057AFBB /* Nature Around Me */;
+			targetProxy = 5579F155267B9A630057AFBB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		5579F13C267B9A600057AFBB /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5579F13D267B9A600057AFBB /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		5579F141267B9A630057AFBB /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5579F142267B9A630057AFBB /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		5579F15B267B9A630057AFBB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		5579F15C267B9A630057AFBB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5579F15E267B9A630057AFBB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B4E30E073CAC5EB28F72A840 /* Pods-Nature Around Me.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Nature Around Me/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.RonDavid.Nature-Around-Me";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5579F15F267B9A630057AFBB /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E07518190E8547EA2A1F8A8D /* Pods-Nature Around Me.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Nature Around Me/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.RonDavid.Nature-Around-Me";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		5579F161267B9A630057AFBB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B818997B8EF9E853A9E49713 /* Pods-Nature Around MeTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Nature Around MeTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.RonDavid.Nature-Around-MeTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Nature Around Me.app/Nature Around Me";
+			};
+			name = Debug;
+		};
+		5579F162267B9A630057AFBB /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = ACBCA3D20B23EFE47AD4CA45 /* Pods-Nature Around MeTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Nature Around MeTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.RonDavid.Nature-Around-MeTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Nature Around Me.app/Nature Around Me";
+			};
+			name = Release;
+		};
+		5579F164267B9A630057AFBB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 706E1F0211D3FAEEB8C8F8F8 /* Pods-Nature Around Me-Nature Around MeUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Nature Around MeUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.RonDavid.Nature-Around-MeUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Nature Around Me";
+			};
+			name = Debug;
+		};
+		5579F165267B9A630057AFBB /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F4AB5A66D873281C077EF0AA /* Pods-Nature Around Me-Nature Around MeUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Nature Around MeUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.RonDavid.Nature-Around-MeUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Nature Around Me";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5579F12E267B9A600057AFBB /* Build configuration list for PBXProject "Nature Around Me" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5579F15B267B9A630057AFBB /* Debug */,
+				5579F15C267B9A630057AFBB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5579F15D267B9A630057AFBB /* Build configuration list for PBXNativeTarget "Nature Around Me" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5579F15E267B9A630057AFBB /* Debug */,
+				5579F15F267B9A630057AFBB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5579F160267B9A630057AFBB /* Build configuration list for PBXNativeTarget "Nature Around MeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5579F161267B9A630057AFBB /* Debug */,
+				5579F162267B9A630057AFBB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5579F163267B9A630057AFBB /* Build configuration list for PBXNativeTarget "Nature Around MeUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5579F164267B9A630057AFBB /* Debug */,
+				5579F165267B9A630057AFBB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		5548872A267E1A7200D0C9DB /* MyModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				5548872B267E1A7200D0C9DB /* MyModel.xcdatamodel */,
+			);
+			currentVersion = 5548872B267E1A7200D0C9DB /* MyModel.xcdatamodel */;
+			path = MyModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 5579F12B267B9A600057AFBB /* Project object */;
+}
