@@ -22,6 +22,27 @@ public class Post: NSManagedObject {
 //        return post
 //    }
     
+    static func getAll(callback:@escaping ([Post])->Void){
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        let request = Post.fetchRequest() as NSFetchRequest<Post>
+        request.sortDescriptors = [NSSortDescriptor(key: "id", ascending: true)]
+        
+        DispatchQueue.global().async {
+            //second thread code
+            var data = [Post]()
+            do{
+                data = try context.fetch(request)
+            }catch{
+            }
+            
+            DispatchQueue.main.async {
+                // code to execute on main thread
+                callback(data)
+            }
+        }
+    }
+
+    
     static func create(post:Post)->Post{
         return create(id: post.id!, title: post.title!,location: post.location!, imageUrl: post.imageUrl,lastUpdated: post.lastUpdated)
     }
@@ -53,6 +74,20 @@ public class Post: NSManagedObject {
         return post
     }
     
+    //
+    func toJson()->[String:Any]{
+        var json = [String:Any]()
+        json["id"] = id!
+        json["title"] = title!
+        json["location"] = location!
+        if let imageUrl = imageUrl {
+            json["imageUrl"] = imageUrl
+        }else{
+            json["imageUrl"] = ""
+        }
+        json["lastUpdated"] = FieldValue.serverTimestamp()
+        return json
+    }
     
     
     static func saveLastUpdate(time:Int64){
@@ -60,6 +95,16 @@ public class Post: NSManagedObject {
     }
     static func getLastUpdate()->Int64{
         return Int64(UserDefaults.standard.integer(forKey: "lastUpdate"))
+    }
+    
+    func save(){
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        context.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
+        do{
+            try context.save()
+        }catch{
+            
+        }
     }
 
 }

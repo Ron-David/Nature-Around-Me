@@ -61,7 +61,9 @@ class HomeViewController: UIViewController , UITableViewDataSource,UITableViewDe
         
         if editingStyle == .delete {
             let post = data[indexPath.row]
-            Model.instance.delete(post: post)
+            Model.instance.delete(post: post){
+                //TODO: add spinner
+            }
             data.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		06F06D601C39CE3BE66C911E /* Pods_Nature_Around_Me.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72E6155E0DEEA8199D51F201 /* Pods_Nature_Around_Me.framework */; };
 		552993A8268201E100CD1821 /* Post+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552993A7268201E100CD1821 /* Post+CoreDataProperties.swift */; };
+		552993AD26820C6800CD1821 /* ModelFirebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552993AC26820C6800CD1821 /* ModelFirebase.swift */; };
 		5548870E267D243C00D0C9DB /* CreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5548870D267D243C00D0C9DB /* CreateViewController.swift */; };
 		5548872C267E1A7200D0C9DB /* MyModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5548872A267E1A7200D0C9DB /* MyModel.xcdatamodeld */; };
 		55488732267E1AAF00D0C9DB /* Post+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55488730267E1AAF00D0C9DB /* Post+CoreDataClass.swift */; };
@@ -47,6 +48,7 @@
 
 /* Begin PBXFileReference section */
 		552993A7268201E100CD1821 /* Post+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Post+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		552993AC26820C6800CD1821 /* ModelFirebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelFirebase.swift; sourceTree = "<group>"; };
 		5548870D267D243C00D0C9DB /* CreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateViewController.swift; sourceTree = "<group>"; };
 		5548872B267E1A7200D0C9DB /* MyModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MyModel.xcdatamodel; sourceTree = "<group>"; };
 		55488730267E1AAF00D0C9DB /* Post+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Post+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -195,6 +197,7 @@
 				55488730267E1AAF00D0C9DB /* Post+CoreDataClass.swift */,
 				552993A7268201E100CD1821 /* Post+CoreDataProperties.swift */,
 				5579F187267CFB020057AFBB /* Model.swift */,
+				552993AC26820C6800CD1821 /* ModelFirebase.swift */,
 				5548872A267E1A7200D0C9DB /* MyModel.xcdatamodeld */,
 			);
 			path = Model;
@@ -446,6 +449,7 @@
 				5548872C267E1A7200D0C9DB /* MyModel.xcdatamodeld in Sources */,
 				55488732267E1AAF00D0C9DB /* Post+CoreDataClass.swift in Sources */,
 				5579F16D267BB3160057AFBB /* ProfileViewController.swift in Sources */,
+				552993AD26820C6800CD1821 /* ModelFirebase.swift in Sources */,
 				5579F188267CFB020057AFBB /* Model.swift in Sources */,
 				5579F139267B9A600057AFBB /* SceneDelegate.swift in Sources */,
 				5579F17D267C77870057AFBB /* HomeViewController.swift in Sources */,

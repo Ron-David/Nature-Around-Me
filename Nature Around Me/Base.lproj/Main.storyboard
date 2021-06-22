@@ -85,6 +85,12 @@
                                 <rect key="frame" x="107" y="88" width="200" height="200"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="id" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Iea-Le-Arw">
+                                <rect key="frame" x="159" y="510" width="97" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="7Bn-oM-a9e"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -92,6 +98,7 @@
                     <tabBarItem key="tabBarItem" title="Create" image="plus" catalog="system" id="jvd-3y-Jye"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="id" destination="Iea-Le-Arw" id="vSh-Ut-9a1"/>
                         <outlet property="location" destination="Ozh-Em-kCB" id="XQf-sb-3o4"/>
                         <outlet property="postTitle" destination="TPW-iu-asf" id="lfI-7b-ffE"/>
                     </connections>
