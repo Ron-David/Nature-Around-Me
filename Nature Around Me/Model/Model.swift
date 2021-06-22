@@ -42,7 +42,7 @@ class Model{
         modelFirebase.getAllPosts(since: lastUpdateDate ){ (posts) in
             var lastUpdate:Int64 = 0
             for post in posts{
-                print("post \(post.lastUpdated)")
+
                 if (lastUpdate < post.lastUpdated){
                     lastUpdate = post.lastUpdated
                 }

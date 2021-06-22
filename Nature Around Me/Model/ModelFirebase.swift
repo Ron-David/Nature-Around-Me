@@ -18,7 +18,7 @@ class ModelFirebase {
         let db = Firestore.firestore()
         db.collection("posts")
             .order(by: "lastUpdated")
-            .start(at: [Timestamp(seconds: since, nanoseconds: 0)])
+            .start(at: [Timestamp(seconds: since, nanoseconds: 0)]).whereField("isActive", isEqualTo: true)
             .getDocuments { (snapshot, err) in
             var posts = [Post]()
             if let err = err{
@@ -26,8 +26,11 @@ class ModelFirebase {
             }else{
                 if let snapshot = snapshot{
                     for snap in snapshot.documents{
+                        print("? \(snap.data())")
+
                         if let post = Post.create(json:snap.data()){
-                            posts.append(post)
+                                posts.append(post)
+
                         }
                     }
                 }
@@ -38,7 +41,6 @@ class ModelFirebase {
 
     func add(post:Post,callback:@escaping ()->Void){
         let db = Firestore.firestore()
-
         db.collection("posts").document(post.id!).setData(post.toJson()){
             err in
             if let err = err {
@@ -51,16 +53,18 @@ class ModelFirebase {
     }
 
     func delete(post:Post,callback:@escaping ()->Void){
-        let db = Firestore.firestore()
+//        let db = Firestore.firestore()
+//
+//        db.collection("posts").document(post.id!).delete() { err in
+//            if let err = err {
+//                print("Error removing document: \(err)")
+//            } else {
+//                print("Document successfully removed!")
+//            }
+//        }
 
-        db.collection("posts").document(post.id!).delete() { err in
-            if let err = err {
-                print("Error removing document: \(err)")
-            } else {
-                print("Document successfully removed!")
-            }
-        }
-
+        post.isActive = false
+        add(post:post){}
     }
 //
 //    func getStudent(byId:String)->Student?{

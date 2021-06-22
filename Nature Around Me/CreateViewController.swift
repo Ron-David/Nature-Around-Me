@@ -23,7 +23,7 @@ class CreateViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     @IBAction func createButton(_ sender: Any) {
-        let post = Post.create(id: id.text!, title: postTitle.text!, location: location.text!,imageUrl: "")
+        let post = Post.create(id: id.text!, title: postTitle.text!, location: location.text!,imageUrl: "", isActive: true)
         Model.instance.add(post: post){
             
         }

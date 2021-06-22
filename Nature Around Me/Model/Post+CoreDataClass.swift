@@ -44,7 +44,7 @@ public class Post: NSManagedObject {
 
     
     static func create(post:Post)->Post{
-        return create(id: post.id!, title: post.title!,location: post.location!, imageUrl: post.imageUrl,lastUpdated: post.lastUpdated)
+        return create(id: post.id!, title: post.title!,location: post.location!, imageUrl: post.imageUrl,isActive: post.isActive,lastUpdated: post.lastUpdated)
     }
     
     static func create(id:String, title:String,location:String, imageUrl:String?,isActive:Bool = true, lastUpdated:Int64 = 0)->Post{
@@ -67,6 +67,7 @@ public class Post: NSManagedObject {
         post.title = json["title"] as? String
         post.location = json["location"] as? String
         post.imageUrl = json["imageUrl"] as? String
+        post.isActive = (json["isActive"] != nil) 
         post.lastUpdated = 0
         if let lup = json["lastUpdated"] as? Timestamp {
             post.lastUpdated = lup.seconds
@@ -80,6 +81,8 @@ public class Post: NSManagedObject {
         json["id"] = id!
         json["title"] = title!
         json["location"] = location!
+        json["isActive"] = isActive
+
         if let imageUrl = imageUrl {
             json["imageUrl"] = imageUrl
         }else{
