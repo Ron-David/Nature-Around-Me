@@ -50,8 +50,8 @@ class HomeViewController: UIViewController , UITableViewDataSource,UITableViewDe
         super.viewWillAppear(animated)
         Model.instance.getAllPosts { posts in
             for post in posts {
+                print(post.id)
                 print(post.isActive)
-
             }
             
             self.data = posts

@@ -67,7 +67,10 @@ public class Post: NSManagedObject {
         post.title = json["title"] as? String
         post.location = json["location"] as? String
         post.imageUrl = json["imageUrl"] as? String
-        post.isActive = (json["isActive"] != nil) 
+        print("HERE: \(json["isActive"] as! Bool)")
+        post.isActive = json["isActive"] as! Bool
+        print("NOW: \(post.isActive)")
+
         post.lastUpdated = 0
         if let lup = json["lastUpdated"] as? Timestamp {
             post.lastUpdated = lup.seconds

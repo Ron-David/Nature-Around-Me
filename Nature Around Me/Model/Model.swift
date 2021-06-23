@@ -17,23 +17,6 @@ class Model{
     let modelFirebase = ModelFirebase()
 
     func getAllPosts(callback:@escaping ([Post])->Void){
-//        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-//        let request = Post.fetchRequest() as NSFetchRequest<Post>
-//        request.sortDescriptors = [NSSortDescriptor(key: "id", ascending: true)]
-//
-//        DispatchQueue.global().async {
-//            //second thread code
-//            var data = [Post]()
-//            do{
-//                data = try context.fetch(request)
-//            }catch{
-//            }
-//
-//            DispatchQueue.main.async {
-//                // main thread
-//                callback(data)
-//            }
-//        }
         
         // Getting the last update value
         let lastUpdateDate = Post.getLastUpdate()
@@ -42,7 +25,9 @@ class Model{
         modelFirebase.getAllPosts(since: lastUpdateDate ){ (posts) in
             var lastUpdate:Int64 = 0
             for post in posts{
-
+                if(!post.isActive){
+                    self.removeFromCoreData(post){}
+                }
                 if (lastUpdate < post.lastUpdated){
                     lastUpdate = post.lastUpdated
                 }
@@ -54,7 +39,7 @@ class Model{
             //Saving the context
             if posts.count > 0 {posts[0].save()}
             
-            //Reaing all posts list from CoreData
+            //Reading all posts list from CoreData
             Post.getAll(callback: callback)
         }
     }
@@ -66,6 +51,12 @@ class Model{
     
     func delete(post:Post,callback:@escaping ()->Void){
         modelFirebase.delete(post: post ,callback: callback)
+        removeFromCoreData(post){}
+    }
+    
+    func removeFromCoreData(_ post:Post,callback:@escaping ()->Void){
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        context.delete(post)
     }
     
 //    func add(post:Post){
@@ -102,5 +93,11 @@ class Model{
         }
         return nil
     }
+    
+    //Creating user
+    func createUser(email:String ,password: String){
+        modelFirebase.createUser(email: email, password: password)
+    }
+
 
 }

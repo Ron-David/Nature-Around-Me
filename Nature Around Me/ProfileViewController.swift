@@ -9,6 +9,13 @@ import UIKit
 
 class ProfileViewController: UIViewController {
 
+    @IBOutlet weak var password: UITextField!
+    
+    @IBOutlet weak var email: UITextField!
+    
+    @IBAction func signUp(_ sender: Any) {
+        Model.instance.createUser(email: email.text!, password: password.text!)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 

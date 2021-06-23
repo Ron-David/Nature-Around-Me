@@ -18,7 +18,8 @@ class ModelFirebase {
         let db = Firestore.firestore()
         db.collection("posts")
             .order(by: "lastUpdated")
-            .start(at: [Timestamp(seconds: since, nanoseconds: 0)]).whereField("isActive", isEqualTo: true)
+            .start(at: [Timestamp(seconds: since, nanoseconds: 0)])
+//            .whereField("isActive", isEqualTo: true)
             .getDocuments { (snapshot, err) in
             var posts = [Post]()
             if let err = err{
@@ -30,6 +31,7 @@ class ModelFirebase {
 
                         if let post = Post.create(json:snap.data()){
                                 posts.append(post)
+                            print("--- \(post.isActive)")
 
                         }
                     }
@@ -71,4 +73,17 @@ class ModelFirebase {
 //
 //        return nil
 //    }
+    
+    
+    
+    //Creating user with Firestore authentication
+    func createUser(email:String ,password: String){
+        Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
+            if let error = error{
+                print("Error in registration: \(error)")
+            }else{
+                print("Registration succeeded!")
+            }
+        }
+    }
 }
