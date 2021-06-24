@@ -12,6 +12,7 @@ class HomeViewController: UIViewController , UITableViewDataSource,UITableViewDe
     @IBOutlet weak var PostsListTableView: UITableView!
     
     var data = [Post]()
+    var refreshControl = UIRefreshControl()
 
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -40,7 +41,13 @@ class HomeViewController: UIViewController , UITableViewDataSource,UITableViewDe
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        PostsListTableView.addSubview(refreshControl)
+        refreshControl.addTarget(self, action:#selector(refresh) , for: .valueChanged)
         
+        reloadData()
+        Model.instance.notificationPostsList.observe {
+            self.reloadData()
+        }
 //        PostsListTableView.setEditing(true, animated: true)
 
         // Do any additional setup after loading the view.
@@ -48,15 +55,16 @@ class HomeViewController: UIViewController , UITableViewDataSource,UITableViewDe
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        Model.instance.getAllPosts { posts in
-            for post in posts {
-                print(post.id)
-                print(post.isActive)
-            }
-            
-            self.data = posts
-            self.PostsListTableView.reloadData()
-        }
+//        Model.instance.getAllPosts { posts in
+////            for post in posts {
+////                print(post.id)
+////                print(post.isActive)
+////            }
+//
+//            self.data = posts
+//            self.PostsListTableView.reloadData()
+//        }
+
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -76,6 +84,21 @@ class HomeViewController: UIViewController , UITableViewDataSource,UITableViewDe
         }
         
     }
+    
+    @objc func refresh(_ sender: AnyObject) {
+        self.reloadData()
+    }
+
+    func reloadData(){
+        refreshControl.beginRefreshing()
+        Model.instance.getAllPosts { posts in
+            self.data = posts
+            self.PostsListTableView.reloadData()
+            self.refreshControl.endRefreshing()
+        }
+    }
+    
+    
     /*
     // MARK: - Navigation
 

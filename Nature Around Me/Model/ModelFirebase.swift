@@ -14,7 +14,8 @@ class ModelFirebase {
     }
     
 
-    func getAllPosts(since: Int64, callback:@escaping ([Post])->Void){
+    func
+     getAllPosts(since: Int64, callback:@escaping ([Post])->Void){
         let db = Firestore.firestore()
         db.collection("posts")
             .order(by: "lastUpdated")
