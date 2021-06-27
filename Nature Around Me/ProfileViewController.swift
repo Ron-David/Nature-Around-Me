@@ -19,12 +19,14 @@ class ProfileViewController: UIViewController {
     
     @IBAction func logOut(_ sender: Any) {
         Model.instance.logOut()
+        viewWillAppear(true)
     }
     @IBAction func logInButton(_ sender: Any) {
 
         Model.instance.logIn(email: loginEmail.text!, password: loginPassword.text!)
         loginPopup.isHidden = true
-        
+        viewWillAppear(true)
+
         
     }
 //    @IBAction func signUp(_ sender: Any) {
@@ -33,13 +35,17 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         //Checking if the user is logged-in
         if(Model.instance.isLoggedIn()){
             isLoggedIn()
         }else{
             logInView()
         }
-        
     }
     
     func isLoggedIn(){

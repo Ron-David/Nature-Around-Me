@@ -20,6 +20,8 @@ class SignUpViewController: UIViewController {
     
     @IBAction func signUp(_ sender: Any) {
         Model.instance.createUser(email: email.text!, password: password.text!,name:name.text!)
+        self.dismiss(animated: true, completion: nil)
+        
     }
     
     override func viewDidLoad() {
