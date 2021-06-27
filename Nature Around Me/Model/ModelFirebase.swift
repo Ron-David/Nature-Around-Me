@@ -76,30 +76,36 @@ class ModelFirebase {
     
     
     /*TODO*/
-//    func addUser(user:User,callback:@escaping ()->Void){
-//        let db = Firestore.firestore()
-//        db.collection("users").document(user.id!).setData(user.toJson()){
-//            err in
-//            if let err = err {
-//                print("Error writing user: \(err)")
-//            }else{
-//                print("User successfully written!")
-//            }
-//            callback()
-//        }
-//    }
+    func addUser(_ id:String ,_ email:String,_ name:String, _ img:String){
+        let db = Firestore.firestore()
+        let user = MyUser(id:id,email:email,name:name,img:img)
+
+        db.collection("users").document(user.id).setData(user.toJson()){
+            err in
+            if let err = err {
+                print("Error writing user: \(err)")
+            }else{
+                print("User successfully written!")
+            }
+        }
+    }
     
     //Creating user with Firestore authentication
     func createUser(email:String ,password: String,name:String,img:String){
+        let id = generateRandomId(length: 10)
+        print(id)
         Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
             if let error = error{
                 print("Error in registration: \(error)")
             }else{
                 print("Registration succeeded!")
-                let firebaseAuth = Auth.auth()
-                print("here: \(firebaseAuth)")
+                self.addUser(id,email,name,img)
             }
         }
+    }
+    func generateRandomId(length: Int) -> String {
+      let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+      return String((0..<length).map{ _ in letters.randomElement()! })
     }
     
     func isLoggedIn()->Bool{

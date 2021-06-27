@@ -12,4 +12,16 @@ import CoreData
 @objc(User)
 public class User: NSManagedObject {
 
+    func toJson()->[String:Any]{
+        var json = [String:Any]()
+        json["id"] = id!
+        json["email"] = email!
+        json["name"] = name!
+        if let img = img {
+            json["img"] = img
+        }else{
+            json["img"] = ""
+        }
+        return json
+    }
 }
