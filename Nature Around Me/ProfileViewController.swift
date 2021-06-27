@@ -11,18 +11,46 @@ class ProfileViewController: UIViewController {
 
     @IBOutlet weak var password: UITextField!
     
+    @IBOutlet weak var loginPopup: UIView!
     @IBOutlet weak var email: UITextField!
     
-    @IBAction func signUp(_ sender: Any) {
-        Model.instance.createUser(email: email.text!, password: password.text!)
+    @IBOutlet weak var loginEmail: UITextField!
+    @IBOutlet weak var loginPassword: UITextField!
+    
+    @IBAction func logOut(_ sender: Any) {
+        Model.instance.logOut()
     }
+    @IBAction func logInButton(_ sender: Any) {
+
+        Model.instance.logIn(email: loginEmail.text!, password: loginPassword.text!)
+        loginPopup.isHidden = true
+        
+        
+    }
+//    @IBAction func signUp(_ sender: Any) {
+//        Model.instance.createUser(email: email.text!, password: password.text!)
+//    }
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        //Checking if the user is logged-in
+        if(Model.instance.isLoggedIn()){
+            isLoggedIn()
+        }else{
+            logInView()
+        }
+        
     }
     
-
+    func isLoggedIn(){
+        print(Model.instance.isLoggedIn())
+        loginPopup.isHidden = true
+    }
+    
+    func logInView(){
+        print(Model.instance.isLoggedIn())
+        loginPopup.isHidden = false
+    }
     /*
     // MARK: - Navigation
 

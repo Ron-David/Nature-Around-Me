@@ -30,7 +30,7 @@ class NotificationGeneral{
 
 class Model{
     static let instance = Model()
-    public let notificationPostsList = NotificationGeneral("notificationPostsList")
+    public let notificationPostsList = NotificationGeneral("com.rondavid.nature.notificationPostsList")
     private init(){}
     
     let modelFirebase = ModelFirebase()
@@ -120,8 +120,19 @@ class Model{
     }
     
     //Creating user
-    func createUser(email:String ,password: String){
-        modelFirebase.createUser(email: email, password: password)
+    func createUser(email:String ,password: String,name:String,img:String=""){
+        modelFirebase.createUser(email: email, password: password,name:name, img: img)
+    }
+    
+    func isLoggedIn()->Bool{
+        return modelFirebase.isLoggedIn()
+    }
+    func logOut(){
+        modelFirebase.logOut()
+    }
+
+    func logIn(email:String,password:String){
+        modelFirebase.logIn(email: email, password: password)
     }
 
 
