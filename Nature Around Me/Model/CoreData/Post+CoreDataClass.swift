@@ -13,14 +13,6 @@ import Firebase
 @objc(Post)
 public class Post: NSManagedObject {
     
-//    static func create(id:String, title:String, location:String)->Post{
-//        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-//        let post = Post(context: context)
-//        post.id = id
-//        post.title = title
-//        post.location = location
-//        return post
-//    }
     
     static func getAll(callback:@escaping ([Post])->Void){
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext

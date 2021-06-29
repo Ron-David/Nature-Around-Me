@@ -43,6 +43,7 @@ class HomeViewController: UIViewController , UITableViewDataSource,UITableViewDe
         super.viewDidLoad()
         PostsListTableView.addSubview(refreshControl)
         refreshControl.addTarget(self, action:#selector(refresh) , for: .valueChanged)
+
         
         reloadData()
         Model.instance.notificationPostsList.observe {
@@ -55,15 +56,6 @@ class HomeViewController: UIViewController , UITableViewDataSource,UITableViewDe
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-//        Model.instance.getAllPosts { posts in
-////            for post in posts {
-////                print(post.id)
-////                print(post.isActive)
-////            }
-//
-//            self.data = posts
-//            self.PostsListTableView.reloadData()
-//        }
 
     }
     

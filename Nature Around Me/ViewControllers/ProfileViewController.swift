@@ -29,9 +29,7 @@ class ProfileViewController: UIViewController {
 
         
     }
-//    @IBAction func signUp(_ sender: Any) {
-//        Model.instance.createUser(email: email.text!, password: password.text!)
-//    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         

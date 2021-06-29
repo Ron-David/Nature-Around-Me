@@ -19,6 +19,11 @@ class SignUpViewController: UIViewController {
     }
     
     @IBAction func signUp(_ sender: Any) {
+        if(email.text == "" || password.text == "" || name.text == "" ){
+            Alert.alertGeneral(on: self, with: "Opss...", message: "Please make sure all fields are filled in correctly.")
+            return
+        }
+
         Model.instance.createUser(email: email.text!, password: password.text!,name:name.text!)
         self.dismiss(animated: true, completion: nil)
         

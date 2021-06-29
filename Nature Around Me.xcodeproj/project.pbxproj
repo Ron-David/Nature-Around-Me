@@ -14,6 +14,7 @@
 		552993D22688D66500CD1821 /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552993D12688D66500CD1821 /* User+CoreDataClass.swift */; };
 		552993D72688D67200CD1821 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552993D62688D67200CD1821 /* User+CoreDataProperties.swift */; };
 		552993DC2688E3A900CD1821 /* MyUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552993DB2688E3A900CD1821 /* MyUser.swift */; };
+		552993E1268B393A00CD1821 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552993E0268B393A00CD1821 /* Alert.swift */; };
 		5548870E267D243C00D0C9DB /* CreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5548870D267D243C00D0C9DB /* CreateViewController.swift */; };
 		5548872C267E1A7200D0C9DB /* MyModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5548872A267E1A7200D0C9DB /* MyModel.xcdatamodeld */; };
 		55488732267E1AAF00D0C9DB /* Post+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55488730267E1AAF00D0C9DB /* Post+CoreDataClass.swift */; };
@@ -57,6 +58,7 @@
 		552993D12688D66500CD1821 /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "User+CoreDataClass.swift"; path = "/Users/rondavid/Desktop/xcode prjects/Nature Around Me/Nature Around Me/Model/User+CoreDataClass.swift"; sourceTree = "<absolute>"; };
 		552993D62688D67200CD1821 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "User+CoreDataProperties.swift"; path = "/Users/rondavid/Desktop/xcode prjects/Nature Around Me/Nature Around Me/Model/User+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
 		552993DB2688E3A900CD1821 /* MyUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyUser.swift; sourceTree = "<group>"; };
+		552993E0268B393A00CD1821 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		5548870D267D243C00D0C9DB /* CreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateViewController.swift; sourceTree = "<group>"; };
 		5548872B267E1A7200D0C9DB /* MyModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MyModel.xcdatamodel; sourceTree = "<group>"; };
 		55488730267E1AAF00D0C9DB /* Post+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Post+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -140,6 +142,29 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		552993E6268B45B900CD1821 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				5579F16C267BB3160057AFBB /* ProfileViewController.swift */,
+				5579F17C267C77870057AFBB /* HomeViewController.swift */,
+				5548870D267D243C00D0C9DB /* CreateViewController.swift */,
+				552993CC2688B7BD00CD1821 /* SignUpViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		552993E7268B45EF00CD1821 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				552993D12688D66500CD1821 /* User+CoreDataClass.swift */,
+				552993D62688D67200CD1821 /* User+CoreDataProperties.swift */,
+				55488730267E1AAF00D0C9DB /* Post+CoreDataClass.swift */,
+				552993BC26825C0200CD1821 /* Post+CoreDataProperties.swift */,
+				5548872A267E1A7200D0C9DB /* MyModel.xcdatamodeld */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
 		5579F12A267B9A600057AFBB = {
 			isa = PBXGroup;
 			children = (
@@ -165,6 +190,7 @@
 		5579F135267B9A600057AFBB /* Nature Around Me */ = {
 			isa = PBXGroup;
 			children = (
+				552993E6268B45B900CD1821 /* ViewControllers */,
 				5579F186267CFACD0057AFBB /* Model */,
 				5579F136267B9A600057AFBB /* AppDelegate.swift */,
 				5579F138267B9A600057AFBB /* SceneDelegate.swift */,
@@ -172,12 +198,8 @@
 				5579F13F267B9A630057AFBB /* Assets.xcassets */,
 				5579F141267B9A630057AFBB /* LaunchScreen.storyboard */,
 				5579F144267B9A630057AFBB /* Info.plist */,
-				5579F16C267BB3160057AFBB /* ProfileViewController.swift */,
-				5579F17C267C77870057AFBB /* HomeViewController.swift */,
 				5579F181267C87650057AFBB /* TableViewCell.swift */,
-				5548870D267D243C00D0C9DB /* CreateViewController.swift */,
 				55F04D06267F4242001AC096 /* GoogleService-Info.plist */,
-				552993CC2688B7BD00CD1821 /* SignUpViewController.swift */,
 			);
 			path = "Nature Around Me";
 			sourceTree = "<group>";
@@ -203,14 +225,11 @@
 		5579F186267CFACD0057AFBB /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				552993D12688D66500CD1821 /* User+CoreDataClass.swift */,
-				552993D62688D67200CD1821 /* User+CoreDataProperties.swift */,
-				55488730267E1AAF00D0C9DB /* Post+CoreDataClass.swift */,
+				552993E7268B45EF00CD1821 /* CoreData */,
 				5579F187267CFB020057AFBB /* Model.swift */,
-				552993BC26825C0200CD1821 /* Post+CoreDataProperties.swift */,
 				552993AC26820C6800CD1821 /* ModelFirebase.swift */,
-				5548872A267E1A7200D0C9DB /* MyModel.xcdatamodeld */,
 				552993DB2688E3A900CD1821 /* MyUser.swift */,
+				552993E0268B393A00CD1821 /* Alert.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -468,6 +487,7 @@
 				552993D72688D67200CD1821 /* User+CoreDataProperties.swift in Sources */,
 				5579F188267CFB020057AFBB /* Model.swift in Sources */,
 				5579F139267B9A600057AFBB /* SceneDelegate.swift in Sources */,
+				552993E1268B393A00CD1821 /* Alert.swift in Sources */,
 				5579F17D267C77870057AFBB /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
