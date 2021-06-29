@@ -153,18 +153,6 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
-		552993E7268B45EF00CD1821 /* CoreData */ = {
-			isa = PBXGroup;
-			children = (
-				552993D12688D66500CD1821 /* User+CoreDataClass.swift */,
-				552993D62688D67200CD1821 /* User+CoreDataProperties.swift */,
-				55488730267E1AAF00D0C9DB /* Post+CoreDataClass.swift */,
-				552993BC26825C0200CD1821 /* Post+CoreDataProperties.swift */,
-				5548872A267E1A7200D0C9DB /* MyModel.xcdatamodeld */,
-			);
-			path = CoreData;
-			sourceTree = "<group>";
-		};
 		5579F12A267B9A600057AFBB = {
 			isa = PBXGroup;
 			children = (
@@ -225,7 +213,11 @@
 		5579F186267CFACD0057AFBB /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				552993E7268B45EF00CD1821 /* CoreData */,
+				552993D12688D66500CD1821 /* User+CoreDataClass.swift */,
+				552993D62688D67200CD1821 /* User+CoreDataProperties.swift */,
+				55488730267E1AAF00D0C9DB /* Post+CoreDataClass.swift */,
+				552993BC26825C0200CD1821 /* Post+CoreDataProperties.swift */,
+				5548872A267E1A7200D0C9DB /* MyModel.xcdatamodeld */,
 				5579F187267CFB020057AFBB /* Model.swift */,
 				552993AC26820C6800CD1821 /* ModelFirebase.swift */,
 				552993DB2688E3A900CD1821 /* MyUser.swift */,

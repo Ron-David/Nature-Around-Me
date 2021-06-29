@@ -76,11 +76,11 @@ class ModelFirebase {
     
     
     /*TODO*/
-    func addUser(_ id:String ,_ email:String,_ name:String, _ img:String){
+    func addUser(_ email:String,_ name:String, _ img:String){
         let db = Firestore.firestore()
-        let user = MyUser(id:id,email:email,name:name,img:img)
+        let user = MyUser(email:email,name:name,img:img)
 
-        db.collection("users").document(user.id).setData(user.toJson()){
+        db.collection("users").document(user.email).setData(user.toJson()){
             err in
             if let err = err {
                 print("Error writing user: \(err)")
@@ -97,9 +97,10 @@ class ModelFirebase {
         Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
             if let error = error{
                 print("Error in registration: \(error)")
+
             }else{
                 print("Registration succeeded!")
-                self.addUser(id,email,name,img)
+                self.addUser(email,name,img)
             }
         }
     }

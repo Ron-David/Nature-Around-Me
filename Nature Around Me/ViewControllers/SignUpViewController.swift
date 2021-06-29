@@ -15,16 +15,33 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var name: UITextField!
     
+    
     @IBAction func addAvatar(_ sender: Any) {
+//        if UIImagePickerController.isSourceTypeAvailable(
+//            UIImagePickerController.SourceType.camera) {
+//            let imagePicker = UIImagePickerController()
+//            imagePicker.delegate = self
+//            imagePicker.sourceType = UIImagePickerController.SourceType.camera;
+//            imagePicker.allowsEditing = true
+//            self.present(imagePicker, animated: true, completion: nil)
+//        }else{
+//            let imagePicker = UIImagePickerController()
+//            imagePicker.delegate = self
+//            imagePicker.sourceType = UIImagePickerController.SourceType.photoLibrary;
+//            imagePicker.allowsEditing = true
+//            self.present(imagePicker, animated: true, completion: nil)
+//        }
     }
     
     @IBAction func signUp(_ sender: Any) {
         if(email.text == "" || password.text == "" || name.text == "" ){
             Alert.alertGeneral(on: self, with: "Opss...", message: "Please make sure all fields are filled in correctly.")
+            
             return
         }
 
         Model.instance.createUser(email: email.text!, password: password.text!,name:name.text!)
+
         self.dismiss(animated: true, completion: nil)
         
     }
@@ -36,6 +53,7 @@ class SignUpViewController: UIViewController {
     }
     
 
+    
     /*
     // MARK: - Navigation
 

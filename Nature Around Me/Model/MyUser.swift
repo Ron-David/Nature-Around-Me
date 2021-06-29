@@ -8,16 +8,14 @@
 import Foundation
 
 class MyUser{
-    let id: String
     let email: String
     let name: String
     let img: String
     
-    init(id:String,email:String,name:String,img:String){
+    init(email:String,name:String,img:String){
         self.name = name
         self.email = email
         self.img = img
-        self.id = id
         
     }
 
@@ -25,7 +23,6 @@ class MyUser{
     
     func toJson()->[String:Any]{
         var json = [String:Any]()
-        json["id"] = id
         json["email"] = email
         json["name"] = name
         json["img"] = img
