@@ -13,34 +13,34 @@ class ModelFirebase {
         FirebaseApp.configure()
     }
     
-
+    
     func getAllPosts(since: Int64, callback:@escaping ([Post])->Void){
         let db = Firestore.firestore()
         db.collection("posts")
             .order(by: "lastUpdated")
             .start(at: [Timestamp(seconds: since, nanoseconds: 0)])
-//            .whereField("isActive", isEqualTo: true)
+            //            .whereField("isActive", isEqualTo: true)
             .getDocuments { (snapshot, err) in
-            var posts = [Post]()
-            if let err = err{
-                print("Error reading document: \(err)")
-            }else{
-                if let snapshot = snapshot{
-                    for snap in snapshot.documents{
-                        print("? \(snap.data())")
-
-                        if let post = Post.create(json:snap.data()){
+                var posts = [Post]()
+                if let err = err{
+                    print("Error reading document: \(err)")
+                }else{
+                    if let snapshot = snapshot{
+                        for snap in snapshot.documents{
+                            print("? \(snap.data())")
+                            
+                            if let post = Post.create(json:snap.data()){
                                 posts.append(post)
-                            print("--- \(post.isActive)")
-
+                                print("--- \(post.isActive)")
+                                
+                            }
                         }
                     }
                 }
+                callback(posts)
             }
-            callback(posts)
-        }
     }
-
+    
     func add(post:Post,callback:@escaping ()->Void){
         let db = Firestore.firestore()
         db.collection("posts").document(post.id!).setData(post.toJson()){
@@ -53,33 +53,33 @@ class ModelFirebase {
             callback()
         }
     }
-
+    
     func delete(post:Post,callback:@escaping ()->Void){
-//        let db = Firestore.firestore()
-//
-//        db.collection("posts").document(post.id!).delete() { err in
-//            if let err = err {
-//                print("Error removing document: \(err)")
-//            } else {
-//                print("Document successfully removed!")
-//            }
-//        }
-
+        //        let db = Firestore.firestore()
+        //
+        //        db.collection("posts").document(post.id!).delete() { err in
+        //            if let err = err {
+        //                print("Error removing document: \(err)")
+        //            } else {
+        //                print("Document successfully removed!")
+        //            }
+        //        }
+        
         post.isActive = false
         add(post:post){}
     }
-//
-//    func getPost(byId:String)->Post?{
-//
-//        return nil
-//    }
+    //
+    //    func getPost(byId:String)->Post?{
+    //
+    //        return nil
+    //    }
     
     
     /*TODO*/
     func addUser(_ email:String,_ name:String, _ img:String){
         let db = Firestore.firestore()
         let user = MyUser(email:email,name:name,img:img)
-
+        
         db.collection("users").document(user.email).setData(user.toJson()){
             err in
             if let err = err {
@@ -91,48 +91,72 @@ class ModelFirebase {
     }
     
     //Creating user with Firestore authentication
-    func createUser(email:String ,password: String,name:String,img:String){
+    func createUser(email:String ,password: String,name:String,img:String,callback:@escaping (Bool)->Void){
         let id = generateRandomId(length: 10)
         print(id)
         Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
             if let error = error{
                 print("Error in registration: \(error)")
+                callback(false)
+                return
 
             }else{
                 print("Registration succeeded!")
                 self.addUser(email,name,img)
+                callback(true)
             }
         }
     }
     func generateRandomId(length: Int) -> String {
-      let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-      return String((0..<length).map{ _ in letters.randomElement()! })
+        let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+        return String((0..<length).map{ _ in letters.randomElement()! })
     }
     
     func isLoggedIn()->Bool{
-    
+        
         if(Auth.auth().currentUser == nil){
             return false
         }
-
+        
         return true
     }
     
     func logOut(){
         let firebaseAuth = Auth.auth()
-    do {
-      try firebaseAuth.signOut()
-    } catch let signOutError as NSError {
-      print ("Error signing out: %@", signOutError)
-    }
-      
+        do {
+            try firebaseAuth.signOut()
+        } catch let signOutError as NSError {
+            print ("Error signing out: %@", signOutError)
+        }
+        
     }
     
     func logIn(email:String,password:String){
-        Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
-          guard let strongSelf = self else { return }
-          // ...
-        }
+        //        Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
+        //          guard let strongSelf = self else { return }
+        // ...
     }
     
+    func saveImage(image:UIImage, callback:@escaping (String)->Void){
+        let storageRef = Storage.storage()
+            .reference(forURL:"gs://nature-around-me.appspot.com/avatars")
+        let data = image.jpegData(compressionQuality: 0.8)
+        let imageRef = storageRef.child("imageName")
+        let metadata = StorageMetadata()
+        metadata.contentType = "image/jpeg"
+        imageRef.putData(data!, metadata: metadata) { (metadata, error) in
+            imageRef.downloadURL { (url, error) in
+                guard let downloadURL = url else {
+                    callback("")
+                    return
+                }
+                print("url: \(downloadURL)")
+                callback(downloadURL.absoluteString)
+            }
+        }
+    }
 }
+
+
+
+

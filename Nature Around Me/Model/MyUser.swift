@@ -18,8 +18,8 @@ class MyUser{
         self.img = img
         
     }
-
-
+    
+    
     
     func toJson()->[String:Any]{
         var json = [String:Any]()

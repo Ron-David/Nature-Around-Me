@@ -8,7 +8,7 @@
 import UIKit
 
 class ProfileViewController: UIViewController {
-
+    
     @IBOutlet weak var password: UITextField!
     
     @IBOutlet weak var loginPopup: UIView!
@@ -17,23 +17,25 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var loginEmail: UITextField!
     @IBOutlet weak var loginPassword: UITextField!
     
+    
+    
+    @IBAction func signUpButton(_ sender: Any) {
+        loginPopup.isHidden = true
+    }
     @IBAction func logOut(_ sender: Any) {
         Model.instance.logOut()
         viewWillAppear(true)
     }
     @IBAction func logInButton(_ sender: Any) {
-
         Model.instance.logIn(email: loginEmail.text!, password: loginPassword.text!)
         loginPopup.isHidden = true
         viewWillAppear(true)
-
-        
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -56,13 +58,13 @@ class ProfileViewController: UIViewController {
         loginPopup.isHidden = false
     }
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }

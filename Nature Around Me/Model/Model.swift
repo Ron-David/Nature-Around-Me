@@ -120,8 +120,8 @@ class Model{
     }
     
     //Creating user
-    func createUser(email:String ,password: String,name:String,img:String=""){
-        modelFirebase.createUser(email: email, password: password,name:name, img: img)
+    func createUser(email:String ,password: String,name:String,img:String="",callback:@escaping (Bool)->Void){
+        modelFirebase.createUser(email: email, password: password,name:name, img: img,callback:callback)
     }
     
     func isLoggedIn()->Bool{
@@ -133,6 +133,11 @@ class Model{
 
     func logIn(email:String,password:String){
         modelFirebase.logIn(email: email, password: password)
+    }
+
+    func saveImage(image:UIImage, callback:@escaping (String)->Void){
+        modelFirebase.saveImage(image: image, callback: callback)
+        
     }
 
 

@@ -14,4 +14,14 @@ struct Alert {
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         vc.present(alert, animated: true, completion: nil)
     }
+    
+    static func imgPickerDialog(on vc: UIViewController, with title:String, message:String, optionA:UIAlertAction, optionB:UIAlertAction, optionC:UIAlertAction){
+        let alert = UIAlertController(title:title,message: message,preferredStyle: .alert)
+        alert.addAction(optionA)
+        alert.addAction(optionB)
+        alert.addAction(optionC)
+        vc.present(alert, animated: true, completion:nil)
+
+        
+    }
 }
