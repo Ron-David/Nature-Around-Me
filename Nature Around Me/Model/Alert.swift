@@ -21,7 +21,12 @@ struct Alert {
         alert.addAction(optionB)
         alert.addAction(optionC)
         vc.present(alert, animated: true, completion:nil)
-
-        
+    }
+    
+    static func twoOptionAlert(on vc: UIViewController, with title:String, message:String, optionA:UIAlertAction, optionB:UIAlertAction){
+        let alert = UIAlertController(title:title,message: message,preferredStyle: .alert)
+        alert.addAction(optionA)
+        alert.addAction(optionB)
+        vc.present(alert, animated: true, completion:nil)
     }
 }

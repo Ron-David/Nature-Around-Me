@@ -120,8 +120,8 @@ class Model{
     }
     
     //Creating user
-    func createUser(email:String ,password: String,name:String,img:String="",callback:@escaping (Bool)->Void){
-        modelFirebase.createUser(email: email, password: password,name:name, img: img,callback:callback)
+    func createUser(email:String ,password: String,name:String,img:String="",bio:String = "",callback:@escaping (Bool)->Void){
+        modelFirebase.createUser(email: email, password: password,name:name, img: img, bio:bio,callback:callback)
     }
     
     func isLoggedIn()->Bool{
@@ -131,13 +131,25 @@ class Model{
         modelFirebase.logOut()
     }
 
-    func logIn(email:String,password:String){
-        modelFirebase.logIn(email: email, password: password)
+    func logIn(email:String,password:String,callback:@escaping (Bool)->Void){
+        modelFirebase.logIn(email: email, password: password,callback:callback)
     }
 
+    func addUser(email:String,name:String,img:String = "",bio:String = "",callback:@escaping (Bool)->Void){
+        modelFirebase.addUser(email, name, img, bio, callback:callback)
+    }
     func saveImage(image:UIImage, callback:@escaping (String)->Void){
         modelFirebase.saveImage(image: image, callback: callback)
         
+    }
+    func currentUser(callback:@escaping (MyUser)->Void){
+        modelFirebase.currentUser(callback:callback)
+    }
+    func changeEmail(email:String,callback:@escaping (Bool)->Void){
+        modelFirebase.changeEmail(email: email, callback: callback)
+    }
+    func changePassword(password:String,callback:@escaping (Bool)->Void){
+        modelFirebase.changePassword(password:password,callback:callback)
     }
 
 

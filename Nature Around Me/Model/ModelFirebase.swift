@@ -76,22 +76,24 @@ class ModelFirebase {
     
     
     /*TODO*/
-    func addUser(_ email:String,_ name:String, _ img:String){
+    func addUser(_ email:String,_ name:String, _ img:String,_ bio:String = "",callback:@escaping (Bool)->Void){
         let db = Firestore.firestore()
-        let user = MyUser(email:email,name:name,img:img)
+        let user = MyUser(email:email,name:name,img:img,bio:bio)
         
         db.collection("users").document(user.email).setData(user.toJson()){
             err in
             if let err = err {
                 print("Error writing user: \(err)")
+                callback(false)
             }else{
                 print("User successfully written!")
+                callback(true)
             }
         }
     }
     
     //Creating user with Firestore authentication
-    func createUser(email:String ,password: String,name:String,img:String,callback:@escaping (Bool)->Void){
+    func createUser(email:String ,password: String,name:String,img:String,bio:String = "",callback:@escaping (Bool)->Void){
         let id = generateRandomId(length: 10)
         print(id)
         Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
@@ -102,7 +104,7 @@ class ModelFirebase {
 
             }else{
                 print("Registration succeeded!")
-                self.addUser(email,name,img)
+                self.addUser(email,name,img,bio){_ in}
                 callback(true)
             }
         }
@@ -113,12 +115,30 @@ class ModelFirebase {
     }
     
     func isLoggedIn()->Bool{
-        
         if(Auth.auth().currentUser == nil){
             return false
         }
         
         return true
+    }
+    
+    //Assuming the user is exist!
+    func currentUser(callback:@escaping (MyUser)->Void){
+        let db = Firestore.firestore()
+//        let user = MyUser(email:Auth.auth().currentUser.email!, name:Auth.auth().currentUser.name,img:Auth.auth().currentUser.)
+        let docRef = db.collection("users").document((Auth.auth().currentUser?.email!)!)
+
+        docRef.getDocument { (document, error) in
+            if let document = document, document.exists {
+                let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
+                print("Document data: \(dataDescription)")
+                let user = MyUser(json: document.data()!)
+                callback(user)
+            } else {
+                print("Document does not exist")
+            }
+        }
+    
     }
     
     func logOut(){
@@ -131,10 +151,12 @@ class ModelFirebase {
         
     }
     
-    func logIn(email:String,password:String){
-        //        Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
-        //          guard let strongSelf = self else { return }
+    func logIn(email:String,password:String,callback:@escaping (Bool)->Void){
+                Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
+                  guard let strongSelf = self else { return }
         // ...
+                    callback(true)
+                }
     }
     
     func saveImage(image:UIImage, callback:@escaping (String)->Void){
@@ -154,6 +176,17 @@ class ModelFirebase {
                 callback(downloadURL.absoluteString)
             }
         }
+    }
+    
+    func changeEmail(email:String,callback:@escaping (Bool)->Void){
+        Auth.auth().currentUser?.updateEmail(to: email, completion: {bool in
+            callback(bool != nil)
+        })
+    }
+    func changePassword(password:String,callback:@escaping (Bool)->Void){
+        Auth.auth().currentUser?.updatePassword(to: password, completion: { bool in
+                callback(bool != nil)
+        })
     }
 }
 

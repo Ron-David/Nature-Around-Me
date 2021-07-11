@@ -17,25 +17,14 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate & 
     @IBOutlet weak var name: UITextField!
     var image: UIImage?
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.spinner.stopAnimating()
+    }
+    
     //Adding avatar from cam/gallery
     @IBAction func addAvatar(_ sender: Any) {
-        let imagePicker = UIImagePickerController()
-        imagePicker.delegate = self
-        imagePicker.allowsEditing = true
-
-        let a = UIAlertAction(title: "Camera", style: .default, handler: {_ in
-            if(UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.camera)){
-                imagePicker.sourceType = UIImagePickerController.SourceType.camera;
-                self.present(imagePicker, animated: true, completion: nil)}})
-        
-        let b = UIAlertAction(title: "Photo Album", style: .default, handler: {_ in
-            imagePicker.sourceType = UIImagePickerController.SourceType.photoLibrary;
-            self.present(imagePicker, animated: true, completion: nil)})
-
-        let c = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
-
-        Alert.imgPickerDialog(on: self, with: "Image Selection", message: "From where you want to pick this image?",optionA:a ,optionB:b ,optionC:c)
-
+        ImgPicker.pickImg(on: self)
     }
     //Catching the img
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
@@ -60,10 +49,24 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate & 
         
         Model.instance.createUser(email: email.text!, password: password.text!,name:name.text!){(success) in
             
-            self.spinner.stopAnimating()
             if(success){
-                self.dismiss(animated: true, completion: nil)
+                if let img = self.image {
+                    Model.instance.saveImage(image: img) { (url) in
+                        Model.instance.addUser(email: self.email.text!, name: self.name.text!, img: url) { (success) in
+                            if(!success){
+                                Alert.alertGeneral(on: self, with: "Opss...", message: "User created but failed to add avatar, please try again later")
+                            }
+                            self.spinner.stopAnimating()
+                            self.dismiss(animated: true, completion: nil)
+                        }
+                    }
+                }else{
+                    self.spinner.stopAnimating()
+                    self.dismiss(animated: true, completion: nil)
+                }
+
             }else{
+                self.spinner.stopAnimating()
                 Alert.alertGeneral(on: self, with: "Opss...", message: "The email address is already in use by another account.")
 
             }
@@ -73,11 +76,7 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate & 
         
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.spinner.stopAnimating()
-    }
-    
+
     func isValidEmail(_ email: String) -> Bool {
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
         let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)

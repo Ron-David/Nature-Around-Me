@@ -11,14 +11,18 @@ pod 'Firebase/Auth'
 pod 'Firebase/Firestore'	
 pod 'Firebase/Storage'	
 pod 'Firebase/Analytics'	
+pod 'Kingfisher', '~> 6.3'
 
   target 'Nature Around MeTests' do
     inherit! :search_paths
     # Pods for testing
+
   end
 
   target 'Nature Around MeUITests' do
     # Pods for testing
   end
+  
+
 
 end
