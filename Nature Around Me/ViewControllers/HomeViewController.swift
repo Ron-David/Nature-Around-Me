@@ -11,6 +11,7 @@ import Kingfisher
 class HomeViewController: UIViewController , UITableViewDataSource,UITableViewDelegate{
     
     @IBOutlet weak var PostsListTableView: UITableView!
+    var userEmail:String?
     
     var data = [Post]()
     var refreshControl = UIRefreshControl()
@@ -36,16 +37,15 @@ class HomeViewController: UIViewController , UITableViewDataSource,UITableViewDe
                 break
             }
         }
-//        if(!(post.imageUrl1 == "")){
-//            let url = URL(string: post.imageUrl1 ?? "")
-//            cell.img.kf.setImage(with: url)
-//        }
         
+        Model.instance.currentUser { currentUser in
+            self.userEmail = currentUser.email
+        }
         cell.name.text = post.title
         cell.location.text = post.location
         
         return cell;
-    
+        
         
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -57,31 +57,32 @@ class HomeViewController: UIViewController , UITableViewDataSource,UITableViewDe
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         postClick = data[indexPath.row]
         self.performSegue(withIdentifier: "toCellView", sender: self)
-
-//        print("Row: \(indexPath)" )
+        
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         PostsListTableView.addSubview(refreshControl)
         refreshControl.addTarget(self, action:#selector(refresh) , for: .valueChanged)
-
         
         reloadData()
         Model.instance.notificationPostsList.observe {
             self.reloadData()
         }
-//        PostsListTableView.setEditing(true, animated: true)
-
-        // Do any additional setup after loading the view.
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
+        
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        true
+        let post = data[indexPath.row]
+        if post.userEmail == userEmail{
+            return true
+        }
+        return false
     }
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         
@@ -99,10 +100,10 @@ class HomeViewController: UIViewController , UITableViewDataSource,UITableViewDe
     }
     
     @objc func refresh(_ sender: AnyObject) {
-
+        
         self.reloadData()
     }
-
+    
     func reloadData(){
         refreshControl.beginRefreshing()
         Model.instance.getAllPosts { posts in
@@ -114,13 +115,13 @@ class HomeViewController: UIViewController , UITableViewDataSource,UITableViewDe
     
     
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }

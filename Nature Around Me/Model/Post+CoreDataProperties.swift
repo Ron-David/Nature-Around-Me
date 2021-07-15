@@ -2,7 +2,7 @@
 //  Post+CoreDataProperties.swift
 //  
 //
-//  Created by Ron David on 13/07/2021.
+//  Created by Ron David on 15/07/2021.
 //
 //
 
@@ -25,5 +25,6 @@ extension Post {
     @NSManaged public var imageUrl2: String?
     @NSManaged public var imageUrl3: String?
     @NSManaged public var freeText: String?
+    @NSManaged public var userEmail: String?
 
 }

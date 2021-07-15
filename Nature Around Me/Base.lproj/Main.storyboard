@@ -226,7 +226,6 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="fyj-2S-nZ9" firstAttribute="centerX" secondItem="lnt-7a-7ZD" secondAttribute="centerX" id="1gh-rS-DaO"/>
-                                                <constraint firstItem="BpH-2Q-aJJ" firstAttribute="top" secondItem="fyj-2S-nZ9" secondAttribute="bottom" constant="5" id="3Xb-ZK-855"/>
                                                 <constraint firstAttribute="trailing" secondItem="fyj-2S-nZ9" secondAttribute="trailing" constant="10" id="5bD-QJ-bvx"/>
                                                 <constraint firstItem="DDD-9N-LAW" firstAttribute="top" secondItem="BpH-2Q-aJJ" secondAttribute="bottom" constant="5" id="Aay-MD-iUg"/>
                                                 <constraint firstItem="DDD-9N-LAW" firstAttribute="centerX" secondItem="lnt-7a-7ZD" secondAttribute="centerX" id="D1a-vY-wGr"/>
@@ -236,8 +235,6 @@
                                                 <constraint firstItem="BpH-2Q-aJJ" firstAttribute="leading" secondItem="lnt-7a-7ZD" secondAttribute="leading" constant="10" id="YfC-c8-cyx"/>
                                                 <constraint firstItem="BpH-2Q-aJJ" firstAttribute="top" secondItem="fyj-2S-nZ9" secondAttribute="bottom" constant="5" id="gzd-OU-whI"/>
                                                 <constraint firstItem="DDD-9N-LAW" firstAttribute="leading" secondItem="lnt-7a-7ZD" secondAttribute="leading" constant="10" id="iqG-v6-nIs"/>
-                                                <constraint firstItem="fyj-2S-nZ9" firstAttribute="top" secondItem="lnt-7a-7ZD" secondAttribute="top" constant="10" id="lAg-eF-WnC"/>
-                                                <constraint firstItem="fyj-2S-nZ9" firstAttribute="leading" secondItem="lnt-7a-7ZD" secondAttribute="leading" constant="10" id="mDh-my-36k"/>
                                                 <constraint firstAttribute="trailing" secondItem="fyj-2S-nZ9" secondAttribute="trailing" constant="10" id="uQ9-R3-ewI"/>
                                                 <constraint firstAttribute="trailing" secondItem="DDD-9N-LAW" secondAttribute="trailing" constant="10" id="vMW-sP-7Z9"/>
                                                 <constraint firstAttribute="trailing" secondItem="BpH-2Q-aJJ" secondAttribute="trailing" constant="10" id="xxW-RV-DlS"/>

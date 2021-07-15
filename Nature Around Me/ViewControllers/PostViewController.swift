@@ -9,7 +9,7 @@ import UIKit
 import Kingfisher
 
 class PostViewController: UIViewController {
-
+    
     @IBOutlet weak var postTitle: UILabel!
     var postTitleT:String?
     var post:Post?
@@ -21,7 +21,7 @@ class PostViewController: UIViewController {
     @IBOutlet weak var img: UIImageView!
     var imgsUrl = [String]()
     var imgCounter = 0
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let imgs = [post?.imageUrl1,post?.imageUrl2,post?.imageUrl3]
@@ -30,8 +30,8 @@ class PostViewController: UIViewController {
                 imgsUrl.append(img!)
             }
         }
-            let imgUrl = URL(string: imgsUrl[0])
-            img.kf.setImage(with: imgUrl)
+        let imgUrl = URL(string: imgsUrl[0])
+        img.kf.setImage(with: imgUrl)
         if imgsUrl.count == 1 {
             backImgBtn.isEnabled = false
             nextImgBtn.isEnabled = false
@@ -40,10 +40,9 @@ class PostViewController: UIViewController {
         location.text = post?.location
         textField.text = post?.freeText
         textField.isEditable = false
-        
-        }
+    }
     
-
+    
     @IBAction func leftBtn(_ sender: Any) {
         nextImgBtn.isEnabled = true
         imgCounter -= 1
@@ -63,13 +62,13 @@ class PostViewController: UIViewController {
         }
     }
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }

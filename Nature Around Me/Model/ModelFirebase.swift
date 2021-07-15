@@ -27,16 +27,9 @@ class ModelFirebase {
                 }else{
                     if let snapshot = snapshot{
                         for snap in snapshot.documents{
-                            print("? \(snap.data())")
-                            
-                            let myPost = MyPost(json:snap.data())
-                            
-                                
-                                    let post = Post.create(json: snap.data())
-                                    posts.append(post!)
-                                    print("--- \(post!.isActive)")
-                                
-                                
+
+                            let post = Post.create(json: snap.data())
+                            posts.append(post!)
                             
                         }
                     }
@@ -59,29 +52,13 @@ class ModelFirebase {
     }
     
     func delete(post:Post,callback:@escaping ()->Void){
-        //        let db = Firestore.firestore()
-        //
-        //        db.collection("posts").document(post.id!).delete() { err in
-        //            if let err = err {
-        //                print("Error removing document: \(err)")
-        //            } else {
-        //                print("Document successfully removed!")
-        //            }
-        //        }
-        
         post.isActive = false
         add(post:post){
             callback()
         }
     }
-    //
-    //    func getPost(byId:String)->Post?{
-    //
-    //        return nil
-    //    }
     
     
-    /*TODO*/
     func addUser(_ email:String,_ name:String, _ img:String,_ bio:String = "",callback:@escaping (Bool)->Void){
         let db = Firestore.firestore()
         let user = MyUser(email:email,name:name,img:img,bio:bio)
@@ -107,7 +84,7 @@ class ModelFirebase {
                 print("Error in registration: \(error)")
                 callback(false)
                 return
-
+                
             }else{
                 print("Registration succeeded!")
                 self.addUser(email,name,img,bio){_ in}
@@ -130,10 +107,13 @@ class ModelFirebase {
     
     //Assuming the user is exist!
     func currentUser(callback:@escaping (MyUser)->Void){
+        if !isLoggedIn(){
+            return
+        }
         let db = Firestore.firestore()
-//        let user = MyUser(email:Auth.auth().currentUser.email!, name:Auth.auth().currentUser.name,img:Auth.auth().currentUser.)
+        
         let docRef = db.collection("users").document((Auth.auth().currentUser?.email!)!)
-
+        
         docRef.getDocument { (document, error) in
             if let document = document, document.exists {
                 let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
@@ -144,7 +124,7 @@ class ModelFirebase {
                 print("Document does not exist")
             }
         }
-    
+        
     }
     
     func logOut(){
@@ -158,18 +138,18 @@ class ModelFirebase {
     }
     
     func logIn(email:String,password:String,callback:@escaping (Bool)->Void){
-                Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
-                  guard let strongSelf = self else { return }
-        // ...
-                    callback(true)
-                }
+        Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
+            guard let strongSelf = self else { return }
+            // ...
+            callback(true)
+        }
     }
     
     func saveImage(image:UIImage, callback:@escaping (String)->Void){
         let storageRef = Storage.storage()
             .reference(forURL:"gs://nature-around-me.appspot.com/avatars")
         let data = image.jpegData(compressionQuality: 0.8)
-        let imageRef = storageRef.child("imageName")
+        let imageRef = storageRef.child(generateRandomId(length: 7))
         let metadata = StorageMetadata()
         metadata.contentType = "image/jpeg"
         imageRef.putData(data!, metadata: metadata) { (metadata, error) in
@@ -178,7 +158,6 @@ class ModelFirebase {
                     callback("")
                     return
                 }
-                print("url: \(downloadURL)")
                 callback(downloadURL.absoluteString)
             }
         }
@@ -191,7 +170,7 @@ class ModelFirebase {
     }
     func changePassword(password:String,callback:@escaping (Bool)->Void){
         Auth.auth().currentUser?.updatePassword(to: password, completion: { bool in
-                callback(bool != nil)
+            callback(bool != nil)
         })
     }
 }

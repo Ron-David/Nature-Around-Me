@@ -10,11 +10,11 @@ import UIKit
 class CreateViewController: UIViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
     
     @IBOutlet weak var location: UITextField!
-
+    
     @IBOutlet weak var spinner: UIActivityIndicatorView!
     @IBOutlet weak var detailsText: UITextView!
     @IBOutlet weak var postTitle: UITextField!
-        
+    
     let defaultImage = UIImage(systemName: "photo.on.rectangle.angled")
     @IBOutlet weak var img1: UIImageView!
     @IBOutlet weak var img2: UIImageView!
@@ -62,9 +62,9 @@ class CreateViewController: UIViewController, UIImagePickerControllerDelegate & 
         default:
             self.img1.image = image
         }
-
+        
         self.spinner.stopAnimating()
-
+        
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -75,29 +75,33 @@ class CreateViewController: UIViewController, UIImagePickerControllerDelegate & 
         }
         self.spinner.startAnimating()
         let randId = generateRandomId()
-
-        saveImages(imgs: [img1.image ,img2.image,img3.image]) { (urls) in
-            let post = Post.create(id: randId, title: self.postTitle.text!, location: self.location.text!,imageUrl1: urls[0] ,imageUrl2: urls[1] ,imageUrl3: urls[2] ,freeText: self.detailsText.text, isActive: true)
-            Model.instance.add(post: post){
-                self.spinner.stopAnimating()
-                self.clearButton(self)
-                self.tabBarController?.selectedIndex = 0
-
+        
+        Model.instance.currentUser { currentUser in
+            let userEmail = currentUser.email
+            self.saveImages(imgs: [self.img1.image ,self.img2.image,self.img3.image]) { (urls) in
+                let post = Post.create(id: randId, title: self.postTitle.text!, location: self.location.text!,imageUrl1: urls[0] ,imageUrl2: urls[1] ,imageUrl3: urls[2] ,freeText: self.detailsText.text,userEmail:userEmail , isActive: true)
+                Model.instance.add(post: post){
+                    self.spinner.stopAnimating()
+                    self.clearButton(self)
+                    self.tabBarController?.selectedIndex = 0
+                    
+                }
+                
+            }
         }
-  
-        }
-
+        
+        
     }
     
     func generateRandomId() -> String {
-      let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-      return String((0..<10).map{ _ in letters.randomElement()! })
+        let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+        return String((0..<10).map{ _ in letters.randomElement()! })
     }
     
     func saveImages(imgs:[UIImage?],callback:@escaping ([String])->Void){
         let length = imgs.count
         var urls = [String]()
-
+        
         for img in imgs{
             if img == defaultImage{
                 urls.append("")
@@ -115,8 +119,8 @@ class CreateViewController: UIViewController, UIImagePickerControllerDelegate & 
         }
         
     }
-
-
+    
+    
     func validatePost()->Bool{
         if !Model.instance.isLoggedIn(){
             let a = UIAlertAction(title: "Log-In", style: .default, handler: {_ in
@@ -145,13 +149,13 @@ class CreateViewController: UIViewController, UIImagePickerControllerDelegate & 
         return true
     }
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }

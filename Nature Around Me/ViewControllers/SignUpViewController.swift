@@ -61,11 +61,14 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate & 
                             }
                             self.spinner.stopAnimating()
                             self.navigationController?.popViewController(animated: true)
+                            self.dismiss(animated: true, completion: nil)
+
                         }
                     }
                 }else{
                     self.spinner.stopAnimating()
                     self.navigationController?.popViewController(animated: true)
+                    self.dismiss(animated: true, completion: nil)
 
                 }
 
