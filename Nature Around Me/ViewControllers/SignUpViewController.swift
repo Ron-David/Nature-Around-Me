@@ -20,7 +20,9 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate & 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.spinner.stopAnimating()
+        
     }
+    
     
     //Adding avatar from cam/gallery
     @IBAction func addAvatar(_ sender: Any) {
@@ -48,7 +50,8 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate & 
         spinner.startAnimating();
         
         Model.instance.createUser(email: email.text!, password: password.text!,name:name.text!){(success) in
-            
+
+
             if(success){
                 if let img = self.image {
                     Model.instance.saveImage(image: img) { (url) in
@@ -57,12 +60,13 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate & 
                                 Alert.alertGeneral(on: self, with: "Opss...", message: "User created but failed to add avatar, please try again later")
                             }
                             self.spinner.stopAnimating()
-                            self.dismiss(animated: true, completion: nil)
+                            self.navigationController?.popViewController(animated: true)
                         }
                     }
                 }else{
                     self.spinner.stopAnimating()
-                    self.dismiss(animated: true, completion: nil)
+                    self.navigationController?.popViewController(animated: true)
+
                 }
 
             }else{
@@ -83,6 +87,7 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate & 
         return emailPred.evaluate(with: email)
     }
     
+
     /*
      // MARK: - Navigation
      

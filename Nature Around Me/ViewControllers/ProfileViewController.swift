@@ -11,21 +11,24 @@ import Kingfisher
 class ProfileViewController: UIViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
     
     
+    @IBOutlet weak var logInBtn: UIButton!
+    @IBOutlet weak var editAvatarBtn: UIButton!
     @IBOutlet weak var spinner: UIActivityIndicatorView!
     @IBOutlet weak var avatar: UIImageView!
     @IBOutlet weak var name: UITextField!
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var bioText: UITextView!
+    @IBOutlet weak var logOutBtn: UIButton!
+
     var currentUser:MyUser?
     let defaultImage = UIImage(systemName: "person.fill")
 
-    @IBOutlet weak var loginPopup: UIView!
-    @IBOutlet weak var loginEmail: UITextField!
-    @IBOutlet weak var loginPassword: UITextField!
+
     var isAnAccount:Bool!
     var editMode = false;
     
     @IBOutlet weak var editBtn: UIBarButtonItem!
+
     
     @IBAction func editBtn(_ sender: Any) {
         //Clicked edit
@@ -79,7 +82,6 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate &
     }
     
     @IBAction func signUpButton(_ sender: Any) {
-        loginPopup.isHidden = true
     }
     @IBAction func logOut(_ sender: Any) {
         avatar.image = defaultImage
@@ -87,13 +89,6 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate &
         name.text = nil
         bioText.text = "Bio"
         Model.instance.logOut()
-        viewWillAppear(true)
-    }
-    @IBAction func logInButton(_ sender: Any) {
-        Model.instance.logIn(email: loginEmail.text!, password: loginPassword.text!){
-            _ in
-        }
-        loginPopup.isHidden = true
         viewWillAppear(true)
     }
     
@@ -111,23 +106,16 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate &
         if(isAnAccount){
             isLoggedIn()
         }else{
-            let a = UIAlertAction(title: "Log-In", style: .default, handler: {_ in
-                self.performSegue(withIdentifier: "toLogIn", sender: self)
-                
-            })
-            
-            let b = UIAlertAction(title: "Sign-Up", style: .default, handler: {_ in
-                
-            })
-            
-            Alert.twoOptionAlert(on: self, with: "Before we continue", message: "please login or signup to continue", optionA: a, optionB: b)
-            
-            logInView()
+            needToLogIn()
         }
     }
     
     func isLoggedIn(){
-        loginPopup.isHidden = true
+        editBtn.isEnabled = true
+        editAvatarBtn.isEnabled = true
+        logInBtn.isHidden = true
+        logOutBtn.isHidden = false
+
         Model.instance.currentUser() { [self]user in
             currentUser = user
             email.text = user.email
@@ -142,8 +130,23 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate &
         }
     }
     
-    func logInView(){
-        loginPopup.isHidden = false
+    func needToLogIn(){
+        editBtn.isEnabled = false
+        editAvatarBtn.isEnabled = false
+        logOutBtn.isHidden = true
+        logInBtn.isHidden = false
+        
+        let a = UIAlertAction(title: "Log-In", style: .default, handler: {_ in
+            self.performSegue(withIdentifier: "toLogIn", sender: self)
+        })
+        
+        let b = UIAlertAction(title: "Sign-Up", style: .default, handler: {_ in
+            self.performSegue(withIdentifier: "toSignUp", sender: self)
+        })
+        let c = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
+    
+        Alert.threeOptionAlert(on: self, with: "Before we continue", message: "please login or signup to continue", optionA: a, optionB: b,optionC: c)
+        
     }
     
     func updateProfileInfo(_ email:String,_ name:String ,_ bio:String,callback:@escaping (Bool)->Void){
@@ -154,6 +157,10 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate &
             }
             callback(succeeded)
         }
+    }
+    
+    @IBAction func logInButton(_ sender: Any) {
+        self.performSegue(withIdentifier: "toLogIn", sender: self)
     }
     
     /*

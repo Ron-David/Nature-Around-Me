@@ -16,10 +16,10 @@ class LogInViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         spinner.stopAnimating()
-        
+
         // Do any additional setup after loading the view.
     }
-    
+
     @IBAction func signUpButton(_ sender: Any) {
 //        dismiss(animated: true, completion: nil)
     }
@@ -28,6 +28,7 @@ class LogInViewController: UIViewController {
 
         Model.instance.logIn(email: loginEmail.text!, password: loginPassword.text!){_ in 
             self.spinner.stopAnimating()
+            self.navigationController?.popViewController(animated: true)
             self.dismiss(animated: true, completion: nil)
         }
     }

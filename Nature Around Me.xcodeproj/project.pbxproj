@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		06F06D601C39CE3BE66C911E /* Pods_Nature_Around_Me.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72E6155E0DEEA8199D51F201 /* Pods_Nature_Around_Me.framework */; };
 		552993AD26820C6800CD1821 /* ModelFirebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552993AC26820C6800CD1821 /* ModelFirebase.swift */; };
-		552993BD26825C0200CD1821 /* Post+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552993BC26825C0200CD1821 /* Post+CoreDataProperties.swift */; };
 		552993CD2688B7BE00CD1821 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552993CC2688B7BD00CD1821 /* SignUpViewController.swift */; };
 		552993D22688D66500CD1821 /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552993D12688D66500CD1821 /* User+CoreDataClass.swift */; };
 		552993D72688D67200CD1821 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552993D62688D67200CD1821 /* User+CoreDataProperties.swift */; };
@@ -32,6 +31,9 @@
 		558F28C7269994600092DB78 /* ImgPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558F28C6269994600092DB78 /* ImgPicker.swift */; };
 		558F28D2269ADB8C0092DB78 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558F28D1269ADB8C0092DB78 /* LogInViewController.swift */; };
 		55F04D07267F4242001AC096 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 55F04D06267F4242001AC096 /* GoogleService-Info.plist */; };
+		55F2BCCD269DDDB9001F4C23 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F2BCCC269DDDB9001F4C23 /* PostViewController.swift */; };
+		55F2BCD5269DFAF8001F4C23 /* Post+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F2BCD4269DFAF8001F4C23 /* Post+CoreDataProperties.swift */; };
+		55F2BCDA269F48C3001F4C23 /* MyPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F2BCD9269F48C3001F4C23 /* MyPost.swift */; };
 		5B7F04E8FA359A2CBA0262D3 /* Pods_Nature_Around_MeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D84FA3EB7E8855BF6CD4C92 /* Pods_Nature_Around_MeTests.framework */; };
 		FBC4370B82C3BA17FC197B32 /* Pods_Nature_Around_Me_Nature_Around_MeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E47DC824262833BAA71538B4 /* Pods_Nature_Around_Me_Nature_Around_MeUITests.framework */; };
 /* End PBXBuildFile section */
@@ -55,7 +57,6 @@
 
 /* Begin PBXFileReference section */
 		552993AC26820C6800CD1821 /* ModelFirebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelFirebase.swift; sourceTree = "<group>"; };
-		552993BC26825C0200CD1821 /* Post+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Post+CoreDataProperties.swift"; path = "/Users/rondavid/Desktop/xcode prjects/Nature Around Me/Nature Around Me/Model/Post+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
 		552993CC2688B7BD00CD1821 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		552993D12688D66500CD1821 /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "User+CoreDataClass.swift"; path = "/Users/rondavid/Desktop/xcode prjects/Nature Around Me/Nature Around Me/Model/User+CoreDataClass.swift"; sourceTree = "<absolute>"; };
 		552993D62688D67200CD1821 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "User+CoreDataProperties.swift"; path = "/Users/rondavid/Desktop/xcode prjects/Nature Around Me/Nature Around Me/Model/User+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
@@ -84,6 +85,9 @@
 		558F28C6269994600092DB78 /* ImgPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImgPicker.swift; sourceTree = "<group>"; };
 		558F28D1269ADB8C0092DB78 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		55F04D06267F4242001AC096 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		55F2BCCC269DDDB9001F4C23 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
+		55F2BCD4269DFAF8001F4C23 /* Post+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Post+CoreDataProperties.swift"; path = "/Users/rondavid/Desktop/xcode prjects/Nature Around Me/Nature Around Me/Model/Post+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
+		55F2BCD9269F48C3001F4C23 /* MyPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPost.swift; sourceTree = "<group>"; };
 		706E1F0211D3FAEEB8C8F8F8 /* Pods-Nature Around Me-Nature Around MeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nature Around Me-Nature Around MeUITests.debug.xcconfig"; path = "Target Support Files/Pods-Nature Around Me-Nature Around MeUITests/Pods-Nature Around Me-Nature Around MeUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		72E6155E0DEEA8199D51F201 /* Pods_Nature_Around_Me.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Nature_Around_Me.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D84FA3EB7E8855BF6CD4C92 /* Pods_Nature_Around_MeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Nature_Around_MeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -154,6 +158,7 @@
 				5548870D267D243C00D0C9DB /* CreateViewController.swift */,
 				552993CC2688B7BD00CD1821 /* SignUpViewController.swift */,
 				558F28D1269ADB8C0092DB78 /* LogInViewController.swift */,
+				55F2BCCC269DDDB9001F4C23 /* PostViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -221,13 +226,14 @@
 				552993D12688D66500CD1821 /* User+CoreDataClass.swift */,
 				552993D62688D67200CD1821 /* User+CoreDataProperties.swift */,
 				55488730267E1AAF00D0C9DB /* Post+CoreDataClass.swift */,
-				552993BC26825C0200CD1821 /* Post+CoreDataProperties.swift */,
+				55F2BCD4269DFAF8001F4C23 /* Post+CoreDataProperties.swift */,
 				5548872A267E1A7200D0C9DB /* MyModel.xcdatamodeld */,
 				5579F187267CFB020057AFBB /* Model.swift */,
 				552993AC26820C6800CD1821 /* ModelFirebase.swift */,
 				552993DB2688E3A900CD1821 /* MyUser.swift */,
 				552993E0268B393A00CD1821 /* Alert.swift */,
 				558F28C6269994600092DB78 /* ImgPicker.swift */,
+				55F2BCD9269F48C3001F4C23 /* MyPost.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -474,6 +480,7 @@
 				5548870E267D243C00D0C9DB /* CreateViewController.swift in Sources */,
 				5579F182267C87650057AFBB /* TableViewCell.swift in Sources */,
 				558F28D2269ADB8C0092DB78 /* LogInViewController.swift in Sources */,
+				55F2BCDA269F48C3001F4C23 /* MyPost.swift in Sources */,
 				5579F137267B9A600057AFBB /* AppDelegate.swift in Sources */,
 				552993D22688D66500CD1821 /* User+CoreDataClass.swift in Sources */,
 				558F28C7269994600092DB78 /* ImgPicker.swift in Sources */,
@@ -483,8 +490,9 @@
 				552993DC2688E3A900CD1821 /* MyUser.swift in Sources */,
 				552993CD2688B7BE00CD1821 /* SignUpViewController.swift in Sources */,
 				552993AD26820C6800CD1821 /* ModelFirebase.swift in Sources */,
-				552993BD26825C0200CD1821 /* Post+CoreDataProperties.swift in Sources */,
+				55F2BCCD269DDDB9001F4C23 /* PostViewController.swift in Sources */,
 				552993D72688D67200CD1821 /* User+CoreDataProperties.swift in Sources */,
+				55F2BCD5269DFAF8001F4C23 /* Post+CoreDataProperties.swift in Sources */,
 				5579F188267CFB020057AFBB /* Model.swift in Sources */,
 				5579F139267B9A600057AFBB /* SceneDelegate.swift in Sources */,
 				552993E1268B393A00CD1821 /* Alert.swift in Sources */,

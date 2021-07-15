@@ -29,11 +29,15 @@ class ModelFirebase {
                         for snap in snapshot.documents{
                             print("? \(snap.data())")
                             
-                            if let post = Post.create(json:snap.data()){
-                                posts.append(post)
-                                print("--- \(post.isActive)")
+                            let myPost = MyPost(json:snap.data())
+                            
                                 
-                            }
+                                    let post = Post.create(json: snap.data())
+                                    posts.append(post!)
+                                    print("--- \(post!.isActive)")
+                                
+                                
+                            
                         }
                     }
                 }
@@ -66,7 +70,9 @@ class ModelFirebase {
         //        }
         
         post.isActive = false
-        add(post:post){}
+        add(post:post){
+            callback()
+        }
     }
     //
     //    func getPost(byId:String)->Post?{

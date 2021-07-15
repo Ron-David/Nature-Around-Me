@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="20F71" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Post" representedClassName="Post" syncable="YES">
+        <attribute name="freeText" optional="YES" attributeType="String"/>
         <attribute name="id" optional="YES" attributeType="String"/>
-        <attribute name="imageUrl" optional="YES" attributeType="String"/>
+        <attribute name="imageUrl1" optional="YES" attributeType="String"/>
+        <attribute name="imageUrl2" optional="YES" attributeType="String"/>
+        <attribute name="imageUrl3" optional="YES" attributeType="String"/>
         <attribute name="isActive" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="lastUpdated" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="location" optional="YES" attributeType="String"/>
@@ -28,7 +31,7 @@
         </uniquenessConstraints>
     </entity>
     <elements>
-        <element name="Post" positionX="-54" positionY="-9" width="128" height="119"/>
+        <element name="Post" positionX="-54" positionY="-9" width="128" height="164"/>
         <element name="User" positionX="-54" positionY="36" width="128" height="134"/>
     </elements>
 </model>

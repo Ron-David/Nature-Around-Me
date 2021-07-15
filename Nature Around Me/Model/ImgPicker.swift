@@ -26,7 +26,7 @@ struct ImgPicker {
 
         let c = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
 
-        Alert.imgPickerDialog(on: vc, with: "Image Selection", message: "From where you want to pick this image?",optionA:a ,optionB:b ,optionC:c)
+        Alert.threeOptionAlert(on: vc, with: "Image Selection", message: "From where you want to pick this image?",optionA:a ,optionB:b ,optionC:c)
         
     }
     

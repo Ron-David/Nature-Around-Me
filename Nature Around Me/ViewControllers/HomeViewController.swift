@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class HomeViewController: UIViewController , UITableViewDataSource,UITableViewDelegate{
     
@@ -13,7 +14,7 @@ class HomeViewController: UIViewController , UITableViewDataSource,UITableViewDe
     
     var data = [Post]()
     var refreshControl = UIRefreshControl()
-
+    var postClick:Post?
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return data.count;
@@ -23,21 +24,41 @@ class HomeViewController: UIViewController , UITableViewDataSource,UITableViewDe
         return 400;
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) ->UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) ->UITableViewCell{
         
         let cell = PostsListTableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as! TableViewCell
         let post = data[indexPath.row]
+        let imgsUrl = [post.imageUrl1,post.imageUrl2,post.imageUrl3]
+        for img in imgsUrl{
+            if img != "" && img != nil{
+                let url = URL(string: img!)
+                cell.img.kf.setImage(with: url)
+                break
+            }
+        }
+//        if(!(post.imageUrl1 == "")){
+//            let url = URL(string: post.imageUrl1 ?? "")
+//            cell.img.kf.setImage(with: url)
+//        }
         
         cell.name.text = post.title
         cell.location.text = post.location
+        
         return cell;
     
         
     }
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destVc = segue.destination as! PostViewController
+        destVc.post = postClick
+        
+    }
     /* Table view delegate */
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("Row: \(indexPath)" )
+        postClick = data[indexPath.row]
+        self.performSegue(withIdentifier: "toCellView", sender: self)
+
+//        print("Row: \(indexPath)" )
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -78,6 +99,7 @@ class HomeViewController: UIViewController , UITableViewDataSource,UITableViewDe
     }
     
     @objc func refresh(_ sender: AnyObject) {
+
         self.reloadData()
     }
 

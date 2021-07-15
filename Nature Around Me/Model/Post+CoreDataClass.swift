@@ -36,16 +36,19 @@ public class Post: NSManagedObject {
 
     
     static func create(post:Post)->Post{
-        return create(id: post.id!, title: post.title!,location: post.location!, imageUrl: post.imageUrl,isActive: post.isActive,lastUpdated: post.lastUpdated)
+        return create(id: post.id!, title: post.title!,location: post.location!, imageUrl1: post.imageUrl1,imageUrl2: post.imageUrl2,imageUrl3: post.imageUrl3,freeText: post.freeText,isActive: post.isActive,lastUpdated: post.lastUpdated)
     }
     
-    static func create(id:String, title:String,location:String, imageUrl:String?,isActive:Bool = true, lastUpdated:Int64 = 0)->Post{
+    static func create(id:String, title:String,location:String, imageUrl1:String?, imageUrl2:String?, imageUrl3:String? ,freeText:String?,isActive:Bool = true, lastUpdated:Int64 = 0)->Post{
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         let post = Post(context: context)
         post.id = id
         post.title = title
         post.location = location
-        post.imageUrl = imageUrl
+        post.imageUrl1 = imageUrl1
+        post.imageUrl2 = imageUrl2
+        post.imageUrl3 = imageUrl3
+        post.freeText = freeText
         post.lastUpdated = lastUpdated
         post.isActive = isActive
         return post
@@ -58,7 +61,10 @@ public class Post: NSManagedObject {
         post.id = json["id"] as? String
         post.title = json["title"] as? String
         post.location = json["location"] as? String
-        post.imageUrl = json["imageUrl"] as? String
+        post.imageUrl1 = json["imageUrl1"] as? String
+        post.imageUrl2 = json["imageUrl2"] as? String
+        post.imageUrl3 = json["imageUrl3"] as? String
+        post.freeText = json["freeText"] as? String
         print("HERE: \(json["isActive"] as! Bool)")
         post.isActive = json["isActive"] as! Bool
         print("NOW: \(post.isActive)")
@@ -77,11 +83,21 @@ public class Post: NSManagedObject {
         json["title"] = title!
         json["location"] = location!
         json["isActive"] = isActive
-
-        if let imageUrl = imageUrl {
-            json["imageUrl"] = imageUrl
+        json["freeText"] = freeText
+        if let imageUrl1 = imageUrl1 {
+            json["imageUrl1"] = imageUrl1
         }else{
-            json["imageUrl"] = ""
+            json["imageUrl1"] = ""
+        }
+        if let imageUrl2 = imageUrl2 {
+            json["imageUrl2"] = imageUrl2
+        }else{
+            json["imageUrl2"] = ""
+        }
+        if let imageUrl3 = imageUrl3 {
+            json["imageUrl3"] = imageUrl3
+        }else{
+            json["imageUrl3"] = ""
         }
         json["lastUpdated"] = FieldValue.serverTimestamp()
         return json

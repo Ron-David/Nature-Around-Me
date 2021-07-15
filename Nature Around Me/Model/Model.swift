@@ -31,6 +31,8 @@ class NotificationGeneral{
 class Model{
     static let instance = Model()
     public let notificationPostsList = NotificationGeneral("com.rondavid.nature.notificationPostsList")
+    public let notificationTest = NotificationGeneral("com.rondavid.nature.Test1321329")
+
     private init(){}
     
     let modelFirebase = ModelFirebase()
@@ -50,16 +52,17 @@ class Model{
                 if (lastUpdate < post.lastUpdated){
                     lastUpdate = post.lastUpdated
                 }
-                
             }
             //Updating CoreData last update
             Post.saveLastUpdate(time: lastUpdate)
             
             //Saving the context
             if posts.count > 0 {posts[0].save()}
-            
+            self.deleteInactivePosts()
+
             //Reading all posts list from CoreData
             Post.getAll(callback: callback)
+            
         }
     }
     
@@ -74,14 +77,20 @@ class Model{
     func delete(post:Post,callback:@escaping ()->Void){
         modelFirebase.delete(post: post){
             self.removeFromCoreData(post){}
-//            callback()
             self.notificationPostsList.post()
+            callback()
         }
     }
     
     func removeFromCoreData(_ post:Post,callback:@escaping ()->Void){
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        
         context.delete(post)
+        do{
+            try context.save()
+        }catch{
+            
+        }
     }
     
 //    func add(post:Post){
@@ -117,6 +126,18 @@ class Model{
             
         }
         return nil
+    }
+    
+    //Deleting the inactive posts from the coredata
+    func deleteInactivePosts(){
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        Post.getAll { posts in
+            for post in posts{
+                if !post.isActive{
+                    context.delete(post)
+                }
+            }
+        }
     }
     
     //Creating user

@@ -2,7 +2,7 @@
 //  Post+CoreDataProperties.swift
 //  
 //
-//  Created by Ron David on 22/06/2021.
+//  Created by Ron David on 13/07/2021.
 //
 //
 
@@ -17,10 +17,13 @@ extension Post {
     }
 
     @NSManaged public var id: String?
-    @NSManaged public var location: String?
-    @NSManaged public var title: String?
-    @NSManaged public var imageUrl: String?
+    @NSManaged public var imageUrl1: String?
     @NSManaged public var isActive: Bool
     @NSManaged public var lastUpdated: Int64
+    @NSManaged public var location: String?
+    @NSManaged public var title: String?
+    @NSManaged public var imageUrl2: String?
+    @NSManaged public var imageUrl3: String?
+    @NSManaged public var freeText: String?
 
 }
