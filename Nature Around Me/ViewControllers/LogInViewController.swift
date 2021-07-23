@@ -16,8 +16,6 @@ class LogInViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         spinner.stopAnimating()
-
-        // Do any additional setup after loading the view.
     }
 
     @IBAction func signUpButton(_ sender: Any) {
@@ -26,10 +24,15 @@ class LogInViewController: UIViewController {
     @IBAction func logInButton(_ sender: Any) {
         spinner.startAnimating()
 
-        Model.instance.logIn(email: loginEmail.text!, password: loginPassword.text!){_ in 
+        Model.instance.logIn(email: loginEmail.text!, password: loginPassword.text!){bool in
             self.spinner.stopAnimating()
-            self.navigationController?.popViewController(animated: true)
-            self.dismiss(animated: true, completion: nil)
+            if bool{
+                self.navigationController?.popViewController(animated: true)
+                self.dismiss(animated: true, completion: nil)
+            }else{
+                Alert.alertGeneral(on: self, with: "Opss...", message: "The email address or password is incorrect. Please retry...")
+            }
+
         }
     }
 

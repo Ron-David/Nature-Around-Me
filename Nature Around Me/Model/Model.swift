@@ -30,6 +30,7 @@ class NotificationGeneral{
 
 class Model{
     static let instance = Model()
+    
     public let notificationPostsList = NotificationGeneral("com.rondavid.nature.notificationPostsList")
     public let notificationTest = NotificationGeneral("com.rondavid.nature.Test1321329")
 
@@ -69,8 +70,8 @@ class Model{
     
     func add(post:Post,callback:@escaping ()->Void){
         modelFirebase.add(post: post){
-            callback()
             self.notificationPostsList.post()
+            callback()
         }
     }
     

@@ -21,12 +21,12 @@ class MyUser{
     }
     
     //Empty user
-//    init(email:String = "",name:String = "",img:String = ""){
-//        self.name = name
-//        self.email = email
-//        self.img = img
-//        self.bio = ""
-//    }
+    init(email:String = "",name:String = "",img:String = ""){
+        self.name = name
+        self.email = email
+        self.img = img
+        self.bio = ""
+    }
     
     //Creating user from the Firestore
      init(json:[String:Any]){

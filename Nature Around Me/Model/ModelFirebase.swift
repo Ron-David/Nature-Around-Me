@@ -108,6 +108,7 @@ class ModelFirebase {
     //Assuming the user is exist!
     func currentUser(callback:@escaping (MyUser)->Void){
         if !isLoggedIn(){
+            callback(MyUser())
             return
         }
         let db = Firestore.firestore()
@@ -139,9 +140,14 @@ class ModelFirebase {
     
     func logIn(email:String,password:String,callback:@escaping (Bool)->Void){
         Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
-            guard let strongSelf = self else { return }
+            guard self != nil else { return }
             // ...
-            callback(true)
+            if(error != nil ){
+                callback(false)
+            }else{
+                callback(true)
+            }
+            
         }
     }
     
