@@ -19,16 +19,16 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate &
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var bioText: UITextView!
     @IBOutlet weak var logOutBtn: UIButton!
-
+    
     var currentUser:MyUser?
     let defaultImage = UIImage(systemName: "person.fill")
-
-
+    
+    
     var isAnAccount:Bool!
     var editMode = false;
     
     @IBOutlet weak var editBtn: UIBarButtonItem!
-
+    
     
     @IBAction func editBtn(_ sender: Any) {
         //Clicked edit
@@ -42,7 +42,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate &
             self.spinner.startAnimating()
             name.isEnabled = false
             bioText.isEditable = false
-    
+            
             updateProfileInfo(email.text ?? "",name.text ?? "",bioText.text ?? ""){succeeded in
                 self.spinner.stopAnimating()
                 
@@ -75,7 +75,6 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate &
                     Alert.alertGeneral(on: self, with: "Error", message: "Please try again later")
                 }
                 self.spinner.stopAnimating()
-
             }
         }
         self.dismiss(animated: true, completion: nil)
@@ -101,7 +100,6 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate &
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         //Checking if the user is logged-in
-        
         isAnAccount = Model.instance.isLoggedIn()
         if(isAnAccount){
             isLoggedIn()
@@ -115,7 +113,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate &
         editAvatarBtn.isEnabled = true
         logInBtn.isHidden = true
         logOutBtn.isHidden = false
-
+        
         Model.instance.currentUser() { [self]user in
             currentUser = user
             email.text = user.email
@@ -144,7 +142,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate &
             self.performSegue(withIdentifier: "toSignUp", sender: self)
         })
         let c = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
-    
+        
         Alert.threeOptionAlert(on: self, with: "Before we continue", message: "please login or signup to continue", optionA: a, optionB: b,optionC: c)
         
     }

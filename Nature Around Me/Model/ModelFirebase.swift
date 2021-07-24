@@ -27,7 +27,7 @@ class ModelFirebase {
                 }else{
                     if let snapshot = snapshot{
                         for snap in snapshot.documents{
-
+                            
                             let post = Post.create(json: snap.data())
                             posts.append(post!)
                             
@@ -105,7 +105,7 @@ class ModelFirebase {
         return true
     }
     
-    //Assuming the user is exist!
+    
     func currentUser(callback:@escaping (MyUser)->Void){
         if !isLoggedIn(){
             callback(MyUser())
