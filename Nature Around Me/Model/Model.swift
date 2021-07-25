@@ -20,7 +20,7 @@ class NotificationGeneral{
     func post(){
         NotificationCenter.default.post(name: NSNotification.Name(name), object: self)
     }
-
+    
     func observe(callback:@escaping ()->Void){
         NotificationCenter.default.addObserver(forName: NSNotification.Name(name), object: self, queue: nil) { (notification) in
             callback()
@@ -33,11 +33,11 @@ class Model{
     
     public let notificationPostsList = NotificationGeneral("com.rondavid.nature.notificationPostsList")
     public let notificationTest = NotificationGeneral("com.rondavid.nature.Test1321329")
-
+    
     private init(){}
     
     let modelFirebase = ModelFirebase()
-
+    
     func getAllPosts(callback:@escaping ([Post])->Void){
         
         // Getting the last update value
@@ -60,7 +60,7 @@ class Model{
             //Saving the context
             if posts.count > 0 {posts[0].save()}
             self.deleteInactivePosts()
-
+            
             //Reading all posts list from CoreData
             Post.getAll(callback: callback)
             
@@ -94,28 +94,10 @@ class Model{
         }
     }
     
-//    func add(post:Post){
-//        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-//        do{
-//            try context.save()
-//        }catch{
-//
-//        }
-//    }
-    
-//    func delete(post:Post){
-//        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-//        context.delete(post)
-//        do{
-//            try context.save()
-//        }catch{
-//
-//        }
-//    }
     
     func getPost(byId:String)->Post?{
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-
+        
         let request = Post.fetchRequest() as NSFetchRequest<Post>
         request.predicate = NSPredicate(format: "id == \(byId)")
         do{
@@ -152,11 +134,11 @@ class Model{
     func logOut(){
         modelFirebase.logOut()
     }
-
+    
     func logIn(email:String,password:String,callback:@escaping (Bool)->Void){
         modelFirebase.logIn(email: email, password: password,callback:callback)
     }
-
+    
     func addUser(email:String,name:String,img:String = "",bio:String = "",callback:@escaping (Bool)->Void){
         modelFirebase.addUser(email, name, img, bio, callback:callback)
     }
@@ -173,6 +155,6 @@ class Model{
     func changePassword(password:String,callback:@escaping (Bool)->Void){
         modelFirebase.changePassword(password:password,callback:callback)
     }
-
-
+    
+    
 }

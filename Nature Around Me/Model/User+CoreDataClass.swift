@@ -11,7 +11,7 @@ import CoreData
 
 @objc(User)
 public class User: NSManagedObject {
-
+    
     func toJson()->[String:Any]{
         var json = [String:Any]()
         json["id"] = id!

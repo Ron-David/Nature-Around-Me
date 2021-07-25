@@ -50,8 +50,8 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate & 
         spinner.startAnimating();
         
         Model.instance.createUser(email: email.text!, password: password.text!,name:name.text!){(success) in
-
-
+            
+            
             if(success){
                 if let img = self.image {
                     Model.instance.saveImage(image: img) { (url) in
@@ -62,35 +62,33 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate & 
                             self.spinner.stopAnimating()
                             self.navigationController?.popViewController(animated: true)
                             self.dismiss(animated: true, completion: nil)
-
+                            
                         }
                     }
                 }else{
                     self.spinner.stopAnimating()
                     self.navigationController?.popViewController(animated: true)
                     self.dismiss(animated: true, completion: nil)
-
+                    
                 }
-
+                
             }else{
                 self.spinner.stopAnimating()
                 Alert.alertGeneral(on: self, with: "Opss...", message: "The email address is already in use by another account.")
-
+                
             }
-
+            
         }
-        
-        
     }
     
-
+    
     func isValidEmail(_ email: String) -> Bool {
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
         let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
         return emailPred.evaluate(with: email)
     }
     
-
+    
     /*
      // MARK: - Navigation
      

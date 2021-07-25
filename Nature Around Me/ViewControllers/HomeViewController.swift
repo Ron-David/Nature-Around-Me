@@ -38,7 +38,7 @@ class HomeViewController: UIViewController , UITableViewDataSource,UITableViewDe
             }
         }
         
-
+        
         cell.name.text = post.title
         cell.location.text = post.location
         
@@ -75,7 +75,7 @@ class HomeViewController: UIViewController , UITableViewDataSource,UITableViewDe
         Model.instance.currentUser { currentUser in
             self.userEmail = currentUser.email
         }
-
+        
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -86,7 +86,7 @@ class HomeViewController: UIViewController , UITableViewDataSource,UITableViewDe
         return false
     }
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-
+        
         if editingStyle == .delete {
             let post = data[indexPath.row]
             Model.instance.delete(post: post){

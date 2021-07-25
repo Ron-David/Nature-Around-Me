@@ -33,7 +33,7 @@ public class Post: NSManagedObject {
             }
         }
     }
-
+    
     
     static func create(post:Post)->Post{
         return create(id: post.id!, title: post.title!,location: post.location!, imageUrl1: post.imageUrl1,imageUrl2: post.imageUrl2,imageUrl3: post.imageUrl3,freeText: post.freeText,userEmail: post.userEmail,isActive: post.isActive,lastUpdated: post.lastUpdated)
@@ -54,7 +54,7 @@ public class Post: NSManagedObject {
         post.isActive = isActive
         return post
     }
-
+    
     //Creating post from the Firestore
     static func create(json:[String:Any])->Post?{
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -68,7 +68,7 @@ public class Post: NSManagedObject {
         post.imageUrl3 = json["imageUrl3"] as? String
         post.freeText = json["freeText"] as? String
         post.isActive = json["isActive"] as! Bool
-
+        
         post.lastUpdated = 0
         if let lup = json["lastUpdated"] as? Timestamp {
             post.lastUpdated = lup.seconds
@@ -121,5 +121,5 @@ public class Post: NSManagedObject {
             
         }
     }
-
+    
 }

@@ -29,12 +29,12 @@ class MyUser{
     }
     
     //Creating user from the Firestore
-     init(json:[String:Any]){
+    init(json:[String:Any]){
         self.email = json["email"] as! String
         self.name = json["name"] as! String
         self.img = json["img"] as! String
         self.bio = json["bio"] as! String
-
+        
     }
     
     
